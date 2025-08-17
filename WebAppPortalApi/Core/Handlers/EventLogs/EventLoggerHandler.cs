@@ -1,7 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
+using WebAppPortalApi.Core.Mappers.Logs;
 using WebAppPortalApi.Data.Stores.EventLogs;
 
-namespace Sycon.Logging.Core.Handlers.Event
+namespace WebAppPortalApi.Core.Handlers.EventLogs
 {
     public class  EventLoggerHandler : ILogger
     {
@@ -23,7 +24,7 @@ namespace Sycon.Logging.Core.Handlers.Event
             {
                 Task.WaitAll(
                 [
-                    Task.Run(eventLogStore.Add(logLevel, state?.ToString() ?? string.Empty, (int)logLevel > 3 ? exception : null))
+                    Task.Run(() => eventLogStore.Add(logLevel.Map(state?.ToString(), exception), CancellationToken.None))
                 ]);   
             }
         }

@@ -15,13 +15,8 @@ namespace WebAppPortalApi.Data.Database.Tables.log
         [Required]
         [Column(TypeName = "varchar(max)")]
         public string? State { get; set; } 
-        [Required]
-        [Column(TypeName = "varchar(max)")]
-        public string? Message { get; set; } 
-        [Required]
         [Column( TypeName = "varchar(max)")]
         public string? StackTrace { get; set; } 
-        [Required]
         [Column(TypeName = "varchar(max)")]
         public string? Exception { get; set; } 
         [Required]
