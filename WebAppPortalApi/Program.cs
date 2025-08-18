@@ -1,18 +1,16 @@
-using WebAppPortalApi.Extensions;
+
+using WebAppPortalApi.Core.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 builder.AddApiExtensions();
-builder.AddDataExtensions();
-builder.AddEventLogExtensions();
 
 var app = builder.Build();
 
 app.UseApiExtensions();
-app.UseRequestLogExtensions();
-app.UseEventLogExtensions();
-
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
