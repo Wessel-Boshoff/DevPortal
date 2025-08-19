@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using WebAppPortalApiService.Services.Users;
 using WebAppPortalSite.Common.Options;
 
 namespace WebAppPortalApiService.Extensions
@@ -9,11 +10,11 @@ namespace WebAppPortalApiService.Extensions
     {
         public static WebApplicationBuilder AddServiceExtensions(this WebApplicationBuilder builder)
         {
-
-            builder.Services.Configure<ApiServiceOptions>(builder.Configuration.GetSection(nameof(ApiServiceOptions)));
+            //Setup
             builder.Services.AddHttpClient<ApiService>();
-            //Handlers
-            //   builder.Services.AddScoped<IRequestLoggerHandler, RequestLoggerHandler>();
+
+            //Services
+            builder.Services.AddScoped<IUserService, UserService>();
 
             return builder;
         }

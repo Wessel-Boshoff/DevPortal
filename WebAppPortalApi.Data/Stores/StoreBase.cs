@@ -12,7 +12,6 @@ namespace WebAppPortalApi.Data.Stores
             this.context = context;
         }
 
-        public async Task SaveChanges(CancellationToken cancellationToken) => 
-            await context.SaveChangesAsync(cancellationToken);
+
     }
 }

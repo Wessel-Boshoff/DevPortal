@@ -1,6 +1,14 @@
-@DevPortal_HostAddress = http://localhost:5151
+﻿@DevPortal_HostAddress = http://localhost:5151
 
 GET {{DevPortal_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+| Feature                         | API Side (Backend) | Website Side (Frontend)  |
+| ------------------------------- | ------------------ | ------------------------ |
+| Authentication (login/register) | ✔ Token/JWT auth   | ✔ Form submission to API |
+| Role-based access               | ✔ Middleware check | ✔ UI hiding/showing      |
+| CRUD for Projects               | ✔ API endpoints    | ✔ Forms + validation     |
+| Dashboard                       | ✔ Stats endpoint   | ✔ Graphs + tables        |
+| Responsive UI                   | ❌                  | ✔ Bootstrap + JS         |
+| API Security                    | ✔ JWT + HTTPS      | ❌                        |

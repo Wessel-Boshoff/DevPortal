@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Builder;
 using WebAppPortalApi.Data.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using WebAppPortalApi.Database.Extensions;
+using WebAppPortalApi.Core.Utilities.Auths;
+
+using WebAppPortalApi.Common.Options;
 
 namespace WebAppPortalApi.Core.Extensions
 {
@@ -30,6 +33,12 @@ namespace WebAppPortalApi.Core.Extensions
 
             //Handlers
             builder.Services.AddScoped<IRequestLoggerHandler, RequestLoggerHandler>();
+
+            //Utilities
+            builder.Services.AddScoped<IAuthUtility, AuthUtility>();
+
+            //Options
+            builder.Services.Configure<JwtTokenOptions>(builder.Configuration.GetSection(nameof(JwtTokenOptions)));
 
             return builder;
         }

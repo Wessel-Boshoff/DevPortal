@@ -16,7 +16,7 @@ namespace WebAppPortalApi.Data.Stores.EventLogs
             try
             {
                 context.Events.Add(entity);
-                await SaveChanges(cancellationToken);
+                await context.SaveChangesAsync(cancellationToken);
                 return entity;
             }
             catch (Exception)

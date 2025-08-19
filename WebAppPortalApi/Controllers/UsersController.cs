@@ -19,5 +19,10 @@ public class UsersController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Add(User model, CancellationToken cancellationToken) => 
         Ok(await mediator.Send(new AddUserRequest() { User = model }, cancellationToken));
-    
+
+    [HttpPost]
+    [Route("Login")]
+    public async Task<IActionResult> Login(Login model, CancellationToken cancellationToken) =>
+        Ok(await mediator.Send(new AuthUserRequest() { Login = model }, cancellationToken));
+
 }

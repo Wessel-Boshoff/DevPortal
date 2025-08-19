@@ -10,10 +10,10 @@ namespace WebAppPortalApi.Database.Tables.dbo
         [Required]
         [Column(TypeName = "varchar(254)")]
         public string? EmailAddress { get; set; }
-        [Required]
+   
         [Column(TypeName = "varchar(2000)")]
         public string? Password { get; set; }
-        [Required]
+
         [Column(TypeName = "varchar(500)")]
         public string? Salt { get; set; }
         [Required]

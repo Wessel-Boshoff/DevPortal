@@ -1,0 +1,11 @@
+﻿namespace WebAppPortalSite.Common.Enums
+{
+    public enum LoginStatus
+    {
+        None = 0,
+        InvalidUseramePassword = 1,
+        Locked = 2,
+        Successful = 3
+        
+    }
+}

@@ -22,7 +22,7 @@ namespace WebAppPortalApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("WebAppPortalApi.Data.Database.Tables.dbo.User", b =>
+            modelBuilder.Entity("WebAppPortalApi.Database.Tables.dbo.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -49,7 +49,6 @@ namespace WebAppPortalApi.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("varchar(2000)");
 
                     b.Property<string>("RegistrationStatus")
@@ -61,7 +60,6 @@ namespace WebAppPortalApi.Migrations
                         .HasColumnType("varchar(80)");
 
                     b.Property<string>("Salt")
-                        .IsRequired()
                         .HasColumnType("varchar(500)");
 
                     b.HasKey("Id");
@@ -69,7 +67,7 @@ namespace WebAppPortalApi.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("WebAppPortalApi.Data.Database.Tables.log.Event", b =>
+            modelBuilder.Entity("WebAppPortalApi.Database.Tables.log.Event", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -99,7 +97,7 @@ namespace WebAppPortalApi.Migrations
                     b.ToTable("Events", "log");
                 });
 
-            modelBuilder.Entity("WebAppPortalApi.Data.Database.Tables.log.Request", b =>
+            modelBuilder.Entity("WebAppPortalApi.Database.Tables.log.Request", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
