@@ -21,17 +21,15 @@ namespace WebAppPortalSite.Controllers;
 public class AccountController : Controller
 {
     private readonly IUserService userService;
-    private readonly JwtTokenOptions jwtTokenOptions;
 
-    public AccountController(IUserService userService, IOptionsMonitor<JwtTokenOptions> jwtTokenOptions)
+    public AccountController(IUserService userService)
     {
         this.userService = userService;
-        this.jwtTokenOptions = jwtTokenOptions.CurrentValue;
     }
 
     public IActionResult Login(string returnUrl = "")
     {
-        SignOut();
+        SignOutUser();
         TempData["returnUrl"] = returnUrl;
         return View();
     }
@@ -73,14 +71,14 @@ public class AccountController : Controller
             return View(model);
         }
 
-        await SignInFromAuth(result.Auth);
+        await SignInFromAuth(result.Auth, result.User);
         var returnUrl = TempData["returnUrl"]?.ToString();
         return string.IsNullOrWhiteSpace(returnUrl) ? RedirectToAction("Index", "Home") : Redirect(returnUrl);
     }
 
     public IActionResult Register()
     {
-        SignOut();
+        SignOutUser();
         return View();
     }
 
@@ -107,17 +105,34 @@ public class AccountController : Controller
             //   logger.LogError(result);
             return View(model);
         }
-        await SignInFromAuth(result.Auth);
+        await SignInFromAuth(result.Auth, result.User);
         return RedirectToActionPermanent("Index", "Home");
     }
-    private async Task SignInFromAuth(Auth auth)
-    {
-        SignOut();
-        var principal = jwtTokenOptions.ValidateToken(auth.Token ?? "");
 
+    public IActionResult Logout()
+    {
+        SignOutUser();
+        return RedirectToAction("Login");
+    }
+
+
+    private void SignOutUser()
+    {
+        Request.HttpContext.Session.Clear();
+        SignOut();
+    }
+
+
+    private async Task SignInFromAuth(Auth auth, User user)
+    {
+        SignOutUser();
+        HttpContext.SetSession(user.Map());
+
+        var readToken = auth.Token.ReadJWTToken();
+        //here im illustrating how you can dynamically set claims between your token we use on api and making use of the built in auth we have with mvc
         await HttpContext.SignInAsync(
             CookieAuthenticationDefaults.AuthenticationScheme,
-            new ClaimsPrincipal(new ClaimsIdentity(principal.Claims, CookieAuthenticationDefaults.AuthenticationScheme)),
+            new ClaimsPrincipal(new ClaimsIdentity(readToken.Claims, CookieAuthenticationDefaults.AuthenticationScheme)),
             new AuthenticationProperties
             {
                 IsPersistent = true,

@@ -14,7 +14,6 @@ namespace WebAppPortalSite.Extensions
     {
         public static WebApplicationBuilder AddAuthExtensions(this WebApplicationBuilder builder)
         {
-            //I'm showing a simple way of setting up cookie auth in mvc core projects. using what a different server will validate against 
             builder.Services
             .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options =>
@@ -35,29 +34,10 @@ namespace WebAppPortalSite.Extensions
             return builder;
         }
 
-        public static TokenValidationParameters GetTokenValidationParameters(this JwtTokenOptions jwtOptions) => new()
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = jwtOptions.Issuer,
-            ValidAudience = jwtOptions.Audience,
-            IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(jwtOptions.SecretKey))
-
-        };
-
-        /// <summary>
-        /// Here I'm illustrating how we can validate a jwt token
-        /// </summary>
-        /// <param name="jwtOptions"></param>
-        /// <param name="token"></param>
-        /// <returns></returns>
-        public static ClaimsPrincipal ValidateToken(this JwtTokenOptions jwtOptions, string token)
+        public static JwtSecurityToken ReadJWTToken(this string token)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            SecurityToken validatedToken;
-            return tokenHandler.ValidateToken(token, jwtOptions.GetTokenValidationParameters(), out validatedToken);
+             return tokenHandler.ReadJwtToken(token);
         }
     }
 }

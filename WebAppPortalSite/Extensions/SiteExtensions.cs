@@ -19,6 +19,7 @@ namespace WebAppPortalSite.Extensions
             builder.AddAuthExtensions();
             builder.AddServiceExtensions();
             builder.Services.AddLogging();
+            builder.Services.AddSession();
             //Handlers
             //   builder.Services.AddScoped<IRequestLoggerHandler, RequestLoggerHandler>();
 

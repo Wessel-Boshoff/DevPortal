@@ -13,7 +13,7 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
-
+app.UseSession();
 app.UseSiteExtensions();
 
 app.UseHttpsRedirection();
