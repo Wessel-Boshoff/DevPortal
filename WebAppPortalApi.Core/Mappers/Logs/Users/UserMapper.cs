@@ -16,6 +16,7 @@ namespace WebAppPortalApi.Core.Mappers.Logs.Users
             EmailAddress = entity.EmailAddress,
             FirstNames = entity.FirstNames,
             LastName = entity.LastName,
+            Moniker = entity.Moniker,
             Role = entity.Role,
         };
 
@@ -27,7 +28,22 @@ namespace WebAppPortalApi.Core.Mappers.Logs.Users
             LastName = model.LastName,
             RegistrationStatus = model.Role == Role.Root ? RegistrationStatus.Full : RegistrationStatus.NeedPassword,
             Role = model.Role,
+            Moniker = Guid.NewGuid()
         };
+
+        internal static Database.Tables.dbo.User MapEdit(this Database.Tables.dbo.User entity, User model)
+        {
+            if (entity == default)
+            {
+                return entity ?? new();
+            }
+
+            entity.EmailAddress = model.EmailAddress;
+            entity.FirstNames = model.FirstNames;
+            entity.LastName = model.LastName;
+
+            return entity;
+        }
 
     }
 }

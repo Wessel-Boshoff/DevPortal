@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
 using WebAppPortalApi.Database;
 using WebAppPortalApi.Database.Tables.dbo;
 
@@ -13,6 +14,12 @@ namespace WebAppPortalApi.Data.Stores.Users
 
         public async Task<User> Get(string emailAddress, CancellationToken cancellationToken) =>
            await context.Users.SingleAsync(c => c.EmailAddress == emailAddress, cancellationToken);
+
+        public async Task<User> Get(Guid moniker, CancellationToken cancellationToken) =>
+            await context.Users.SingleAsync(c => c.Moniker == moniker, cancellationToken);
+
+        public async Task<bool> Exists(Guid moniker, CancellationToken cancellationToken) =>
+            await context.Users.AnyAsync(c => c.Moniker == moniker, cancellationToken);
 
         public async Task<bool> Exists(string emailAddress, CancellationToken cancellationToken) =>
             await context.Users.AnyAsync(c => c.EmailAddress == emailAddress, cancellationToken);

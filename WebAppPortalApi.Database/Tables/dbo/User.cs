@@ -23,6 +23,8 @@ namespace WebAppPortalApi.Database.Tables.dbo
         [Column(TypeName = "varchar(300)")]
         public string? LastName { get; set; }
         [Required]
+        public Guid Moniker { get; set; }
+        [Required]
         [Column(TypeName = "varchar(80)")]
         public Role Role { get; set; }
         [Required]

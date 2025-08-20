@@ -16,6 +16,11 @@ public class UsersController : ControllerBase
         this.mediator = mediator;
     }
 
+    [HttpGet]
+    [Route("{moniker}")]
+    public async Task<IActionResult> Get(Guid moniker, CancellationToken cancellationToken) =>
+        Ok(await mediator.Send(new GetUserRequest() { Moniker = moniker}, cancellationToken));
+
     [HttpPost]
     public async Task<IActionResult> Add(User model, CancellationToken cancellationToken) => 
         Ok(await mediator.Send(new AddUserRequest() { User = model }, cancellationToken));

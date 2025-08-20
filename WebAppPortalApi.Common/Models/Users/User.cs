@@ -10,6 +10,7 @@ namespace WebAppPortalApi.Common.Models.Users
         public string? FirstNames { get; set; }
         public string? LastName { get; set; }
         public string? Password { get; set; }
+        public Guid Moniker { get; set; }
         public Role Role { get; set; }
         public DateTime Created { get; set; }
         public DateTime? LastSignIn { get; set; }
