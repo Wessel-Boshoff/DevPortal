@@ -10,21 +10,21 @@ using WebAppPortalApi.Data.Stores.Users;
 
 namespace WebAppPortalApi.Core.Handlers.Users
 {
-    public class GetUserHandler : IRequestHandler<GetUserRequest, GetUserResponse>
+    public class GetUsersHandler : IRequestHandler<GetUsersRequest, GetUsersResponse>
     {
         private readonly IUserStore userStore;
 
-        public GetUserHandler(IUserStore userStore)
+        public GetUsersHandler(IUserStore userStore)
         {
 
             this.userStore = userStore;
         }
 
-        public async Task<GetUserResponse> Handle(GetUserRequest request, CancellationToken cancellationToken)
+        public async Task<GetUsersResponse> Handle(GetUsersRequest request, CancellationToken cancellationToken)
         {
-            GetUserResponse response = new();
+            GetUsersResponse response = new();
 
-            GetUserRequestValidator validator = new(userStore);
+            GetUsersRequestValidator validator = new();
             var resultValidator = await validator.ValidateAsync(request);
             if (!resultValidator.IsValid)
             {
@@ -34,8 +34,8 @@ namespace WebAppPortalApi.Core.Handlers.Users
                 return response;
             }
 
-            var user = await userStore.Get(request.Moniker, cancellationToken);
-            response.User = user.Map();
+            var user = await userStore.Get(cancellationToken);
+            response.Users = user.Map();
             response.Message = "Request was processed successfully";
             response.ResponseCode = ResponseCode.Successful;
             return response;

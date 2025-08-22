@@ -1,0 +1,61 @@
+﻿@model List<UserViewModel>
+
+@{
+    ViewData["Title"] = "User";
+}
+
+<h1>Login</h1>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Email Address</td>
+            <td>First Names</td>
+            <td>Last Name</td>
+            <td><a class="btn btn-sm btn-primary" asp-action="Add" asp-controller="User">Create</a></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="fw-bolder">@item.EmailAddress</td>
+                <td>@item.FirstNames</td>
+                <td>@item.LastName</td>
+                <td>
+                    <a class="btn btn-sm btn-outline-danger btnDeleteUser" data-moniker="@item.Moniker">Delete</a>
+                    <a class="btn btn-sm btn-outline-warning" asp-action="Edit" asp-controller="User" asp-route-moniker="@item.Moniker">Edit</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div id="deleteUserModal" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen-sm-down">
+        <div class="modal-content">
+            <div class="modal-header text-white bg-danger">
+                <h5 class="modal-title"><span class="fa fa-receipt me-2"></span> User</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul id="deleteUserValidation" class="text-danger d-none"><</ul>
+                <p>Are you sure you wish to delete this user?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" style="min-width: 80px" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">No</button>
+                <button type="button" style="min-width: 80px" class="btn btn-sm btn-danger" id="deleteUserConfirm" data-moniker=""><span class="fa fa-trash"></span> Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/User/index.js" asp-append-version="true"></script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

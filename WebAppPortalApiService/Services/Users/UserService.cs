@@ -1,4 +1,6 @@
-﻿using WebAppPortalApiService.Models.Users;
+﻿using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Mvc;
+using WebAppPortalApiService.Models.Users;
 using WebAppPortalApiService.Requests.Users;
 
 namespace WebAppPortalApiService.Services.Users
@@ -11,6 +13,18 @@ namespace WebAppPortalApiService.Services.Users
         {
             this.apiService = apiService;
         }
+
+        public async Task<GetUsersResponse> Get(CancellationToken cancellationToken) =>
+            await apiService.Get<GetUsersResponse>("Users", cancellationToken) ?? new();
+
+        public async Task<GetUserResponse> Get(Guid moniker, CancellationToken cancellationToken) =>
+           await apiService.Get<GetUserResponse>($"Users/{moniker}", cancellationToken) ?? new();
+
+        public async Task<RemoveUserResponse> Delete(Guid moniker, CancellationToken cancellationToken) =>
+           await apiService.Delete<RemoveUserResponse>($"Users/{moniker}", cancellationToken) ?? new();
+
+        public async Task<EditUserResponse> Edit(User request, CancellationToken cancellationToken) =>
+           await apiService.Put<User, EditUserResponse>("Users", request, cancellationToken) ?? new();
 
         public async Task<AddUserResponse> Add(User request, CancellationToken cancellationToken) =>
            await apiService.Post<User, AddUserResponse>("Users", request, cancellationToken) ?? new();

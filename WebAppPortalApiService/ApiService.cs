@@ -21,7 +21,22 @@ namespace WebAppPortalApiService
 
         }
 
-        public async Task<T?> Get<T>(string endpoint, CancellationToken cancellationToken = default)
+
+
+        public async Task<T?> Delete<T>(string endpoint, CancellationToken cancellationToken)
+        {
+            var response = await httpClient.DeleteAsync(endpoint, cancellationToken);
+            response.EnsureSuccessStatusCode();
+
+            var content = await response.Content.ReadAsStringAsync(cancellationToken);
+            return JsonSerializer.Deserialize<T>(content, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+        }
+
+
+        public async Task<T?> Get<T>(string endpoint, CancellationToken cancellationToken)
         {
             var response = await httpClient.GetAsync(endpoint, cancellationToken);
             response.EnsureSuccessStatusCode();
@@ -33,7 +48,22 @@ namespace WebAppPortalApiService
             });
         }
 
-        public async Task<TResponse?> Post<TRequest, TResponse>(string endpoint, TRequest data, CancellationToken cancellationToken = default)
+        public async Task<TResponse?> Put<TRequest, TResponse>(string endpoint, TRequest data, CancellationToken cancellationToken)
+        {
+            var json = JsonSerializer.Serialize(data);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await httpClient.PutAsync(endpoint, content, cancellationToken);
+            response.EnsureSuccessStatusCode();
+
+            var responseContent = await response.Content.ReadAsStringAsync(cancellationToken);
+            return JsonSerializer.Deserialize<TResponse>(responseContent, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+        }
+
+        public async Task<TResponse?> Post<TRequest, TResponse>(string endpoint, TRequest data, CancellationToken cancellationToken )
         {
             var json = JsonSerializer.Serialize(data);
             var content = new StringContent(json, Encoding.UTF8, "application/json");

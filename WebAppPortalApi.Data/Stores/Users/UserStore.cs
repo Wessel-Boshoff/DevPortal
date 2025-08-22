@@ -18,6 +18,9 @@ namespace WebAppPortalApi.Data.Stores.Users
         public async Task<User> Get(Guid moniker, CancellationToken cancellationToken) =>
             await context.Users.SingleAsync(c => c.Moniker == moniker, cancellationToken);
 
+        public async Task<List<User>> Get(CancellationToken cancellationToken) =>
+            await context.Users.ToListAsync(cancellationToken);
+
         public async Task<bool> Exists(Guid moniker, CancellationToken cancellationToken) =>
             await context.Users.AnyAsync(c => c.Moniker == moniker, cancellationToken);
 
@@ -26,6 +29,13 @@ namespace WebAppPortalApi.Data.Stores.Users
 
         public async Task<User> Get(int id, CancellationToken cancellationToken) =>
             await context.Users.SingleAsync(c => c.Id == id, cancellationToken);
+
+        public async Task Remove(User entity, CancellationToken cancellationToken)
+        {
+            context.Users.Remove(entity);
+            await context.SaveChangesAsync(cancellationToken);
+        }
+
 
         public async Task<User> Add(User entity, CancellationToken cancellationToken)
         {

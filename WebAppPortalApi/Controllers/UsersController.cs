@@ -16,13 +16,26 @@ public class UsersController : ControllerBase
         this.mediator = mediator;
     }
 
+    [HttpDelete]
+    [Route("{moniker}")]
+    public async Task<IActionResult> Remove(Guid moniker, CancellationToken cancellationToken) =>
+        Ok(await mediator.Send(new RemoveUserRequest() { Moniker = moniker }, cancellationToken));
+
+    [HttpGet]
+    public async Task<IActionResult> Get(CancellationToken cancellationToken) =>
+        Ok(await mediator.Send(new GetUsersRequest() { }, cancellationToken));
+
     [HttpGet]
     [Route("{moniker}")]
     public async Task<IActionResult> Get(Guid moniker, CancellationToken cancellationToken) =>
-        Ok(await mediator.Send(new GetUserRequest() { Moniker = moniker}, cancellationToken));
+        Ok(await mediator.Send(new GetUserRequest() { Moniker = moniker }, cancellationToken));
+
+    [HttpPut]
+    public async Task<IActionResult> Edit(User model, CancellationToken cancellationToken) =>
+        Ok(await mediator.Send(new EditUserRequest() { User = model }, cancellationToken));
 
     [HttpPost]
-    public async Task<IActionResult> Add(User model, CancellationToken cancellationToken) => 
+    public async Task<IActionResult> Add(User model, CancellationToken cancellationToken) =>
         Ok(await mediator.Send(new AddUserRequest() { User = model }, cancellationToken));
 
     [HttpPost]

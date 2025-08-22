@@ -7,7 +7,12 @@ namespace WebAppPortalApi.Core.Mappers.Logs.Users
 {
     internal static class UserMapper
     {
-        //  internal static List<Error> Map(this List<ValidationFailure> models) => models == default ? [] : [.. models.Select(c => c.Map())];
+        /// <summary>
+        /// purposely demonstrating implicit casting of complex objects 
+        /// </summary>
+        /// <param name="models"></param>
+        /// <returns></returns>
+        internal static List<UserMinimal> Map(this List<Database.Tables.dbo.User> models) => models == default ? [] : [.. models.Select(c => c.Map())];
 
         internal static User Map(this Database.Tables.dbo.User entity) => entity == default ? new() : new()
         {
@@ -41,6 +46,7 @@ namespace WebAppPortalApi.Core.Mappers.Logs.Users
             entity.EmailAddress = model.EmailAddress;
             entity.FirstNames = model.FirstNames;
             entity.LastName = model.LastName;
+            entity.Role = model.Role;
 
             return entity;
         }
