@@ -22,6 +22,43 @@ namespace WebAppPortalApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("WebAppPortalApi.Database.Tables.dbo.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("varchar(2000)");
+
+                    b.Property<string>("Extension")
+                        .HasColumnType("varchar(35)");
+
+                    b.Property<byte[]>("ImageData")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<Guid>("Moniker")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(250)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Products");
+                });
+
             modelBuilder.Entity("WebAppPortalApi.Database.Tables.dbo.User", b =>
                 {
                     b.Property<int>("Id")
@@ -149,6 +186,22 @@ namespace WebAppPortalApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Requests", "log");
+                });
+
+            modelBuilder.Entity("WebAppPortalApi.Database.Tables.dbo.Product", b =>
+                {
+                    b.HasOne("WebAppPortalApi.Database.Tables.dbo.User", "User")
+                        .WithMany("Products")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("WebAppPortalApi.Database.Tables.dbo.User", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

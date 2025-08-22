@@ -1,0 +1,62 @@
+﻿@model List<ProductViewModel>
+
+@{
+    ViewData["Title"] = "Product";
+}
+
+<h1>Product</h1>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Image</td>
+            <td>Name</td>
+            <td><a class="btn btn-sm btn-primary" asp-action="Add" asp-controller="Product">Create</a></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            string thumb = $"data:image/{item.Extension.TrimStart('.')};base64,{item.ImageBase64Thumbnail}";
+
+            <tr>
+                <td><img src="@thumb" style="height: 50px" /></td>
+                <td class="fw-bolder">@item.Name</td>
+              
+                <td>
+                    <a class="btn btn-sm btn-outline-danger btnDeleteProduct" data-moniker="@item.Moniker">Delete</a>
+                    <a class="btn btn-sm btn-outline-warning" asp-action="Edit" asp-controller="Product" asp-route-moniker="@item.Moniker">Edit</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div id="deleteProductModal" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen-sm-down">
+        <div class="modal-content">
+            <div class="modal-header text-white bg-danger">
+                <h5 class="modal-title"><span class="fa fa-receipt me-2"></span> Product</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul id="deleteProductValidation" class="text-danger d-none"><</ul>
+                <p>Are you sure you wish to delete this product?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" style="min-width: 80px" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">No</button>
+                <button type="button" style="min-width: 80px" class="btn btn-sm btn-danger" id="deleteProductConfirm" data-moniker=""><span class="fa fa-trash"></span> Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/Product/index.js" asp-append-version="true"></script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

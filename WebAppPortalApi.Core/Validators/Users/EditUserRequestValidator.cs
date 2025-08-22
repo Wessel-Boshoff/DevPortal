@@ -8,7 +8,7 @@ namespace WebAppPortalApi.Core.Validators.Users
     {
         public EditUserRequestValidator(IUserStore userStore)
         {
-            RuleFor(c => c.User).SetValidator(new UserValidator()).DependentRules(async () =>
+            RuleFor(c => c.User).SetValidator(new UserValidator()).DependentRules(() =>
             {
                 RuleFor(c => c.User.Moniker).MustAsync(async (moniker, cancellationToken) =>
                      await userStore.Exists(moniker, cancellationToken)).WithMessage("This user does not exist");

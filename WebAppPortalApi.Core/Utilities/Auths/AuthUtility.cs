@@ -59,6 +59,12 @@ namespace WebAppPortalApi.Core.Utilities.Auths
             }
 
             var user = await userStore.Get(emailAddress, cancellationToken);
+            if (user.RegistrationStatus == RegistrationStatus.NeedPassword)
+            {
+                resultAuth.LoginStatus = LoginStatus.NeedPassword;
+                return Tuple.Create(resultAuth, user);
+            }
+
             string saltedPassword = password + user.Salt;
 
             using var sha = SHA256.Create();

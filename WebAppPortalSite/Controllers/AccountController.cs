@@ -62,6 +62,9 @@ public class AccountController : Controller
                 case Common.Enums.LoginStatus.Locked:
                     ModelState.AddModelError("", "Profile has been locked, please wait a few minutes and try again.");
                     break;
+                case Common.Enums.LoginStatus.NeedPassword:
+                    ModelState.AddModelError("", "Needs a password.");
+                    break;
                 case Common.Enums.LoginStatus.Successful:
                     //All was well
                     break;

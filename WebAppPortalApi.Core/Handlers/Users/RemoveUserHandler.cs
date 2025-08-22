@@ -2,7 +2,7 @@
 using WebAppPortalApi.Common.Enums;
 using WebAppPortalApi.Core.Mappers.Errors;
 using WebAppPortalApi.Core.Mappers.Logs;
-using WebAppPortalApi.Core.Mappers.Logs.Users;
+using WebAppPortalApi.Core.Mappers.Users;
 using WebAppPortalApi.Core.Requests.Users;
 using WebAppPortalApi.Core.Utilities.Auths;
 using WebAppPortalApi.Core.Validators.Users;

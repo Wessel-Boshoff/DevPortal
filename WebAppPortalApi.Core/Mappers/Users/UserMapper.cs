@@ -3,7 +3,7 @@ using WebAppPortalApi.Common.Enums;
 using WebAppPortalApi.Common.Models;
 using WebAppPortalApi.Common.Models.Users;
 
-namespace WebAppPortalApi.Core.Mappers.Logs.Users
+namespace WebAppPortalApi.Core.Mappers.Users
 {
     internal static class UserMapper
     {
@@ -33,7 +33,7 @@ namespace WebAppPortalApi.Core.Mappers.Logs.Users
             LastName = model.LastName,
             RegistrationStatus = model.Role == Role.Root ? RegistrationStatus.Full : RegistrationStatus.NeedPassword,
             Role = model.Role,
-            Moniker = Guid.NewGuid()
+            Moniker = Guid.NewGuid(),
         };
 
         internal static Database.Tables.dbo.User MapEdit(this Database.Tables.dbo.User entity, User model)

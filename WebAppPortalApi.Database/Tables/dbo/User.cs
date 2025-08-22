@@ -31,6 +31,8 @@ namespace WebAppPortalApi.Database.Tables.dbo
         [Column(TypeName = "varchar(80)")]
         public RegistrationStatus RegistrationStatus { get; set; }
 
+        public List<Product> Products { get; set; }
+
         [Required]
         public DateTime Created { get; set; }
         public DateTime? LastSignIn { get; set; }

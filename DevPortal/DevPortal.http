@@ -12,3 +12,14 @@ Accept: application/json
 | Dashboard                       | ✔ Stats endpoint   | ✔ Graphs + tables        |
 | Responsive UI                   | ❌                  | ✔ Bootstrap + JS         |
 | API Security                    | ✔ JWT + HTTPS      | ❌                        |
+
+
+
+Certification	Project in Solution	Practical Demo
+MCSA: Web Applications	WebAppPortal	ASP.NET Core MVC app with CRUD, Auth, Responsive UI
+MCSD: App Builder	WebAppPortal	REST API, MVC pattern, deployment-ready
+Programming in C#	CSharpFundamentals	OOP, generics, collections, LINQ, async
+HTML5/JS/CSS3	Html5JsCss3Demo	Responsive UI, DOM manipulation, fetch API
+Networking Fundamentals	NetworkingSimulator	TCP/UDP chat app or packet sender/receiver
+Software Dev Fundamentals	SoftwareFundamentalsToolkit	Design patterns, algorithms, console utilities
+Database Fundamentals	DatabaseManager	EF Core + raw SQL, relational DB design, CRUD

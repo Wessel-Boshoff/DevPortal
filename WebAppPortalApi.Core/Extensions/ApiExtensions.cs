@@ -23,7 +23,6 @@ namespace WebAppPortalApi.Core.Extensions
             builder.AddDatabaseExtensions();
             builder.AddEventLogExtensions();
 
-
             builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
             builder.Services.AddFluentValidationAutoValidation(delegate
             {

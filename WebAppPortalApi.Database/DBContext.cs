@@ -21,6 +21,7 @@ namespace WebAppPortalApi.Database
 
         //dbo
         public DbSet<User> Users { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         //log
         public DbSet<Request> Requests { get; set; }

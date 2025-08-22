@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using WebAppPortalApiService.Services.Products;
 using WebAppPortalApiService.Services.Users;
 using WebAppPortalSite.Common.Options;
 
@@ -15,6 +16,7 @@ namespace WebAppPortalApiService.Extensions
 
             //Services
             builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IProductService, ProductService>();
 
             return builder;
         }

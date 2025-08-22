@@ -1,5 +1,4 @@
-﻿
-function SetErrors(id, errors) {
+﻿function SetErrors(id, errors) {
     $(id).html("");
     $(id).removeClass("d-none");
     for (var i = 0; i < errors.length; i++) {
