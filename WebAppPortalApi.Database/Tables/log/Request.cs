@@ -1,9 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Net;
-using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
 
-namespace WebAppPortalSite.Database.Tables.log
+namespace WebAppPortalApi.Database.Tables.log
 {
     [Table("Requests", Schema = "log")]
     public class Request
@@ -33,6 +32,6 @@ namespace WebAppPortalSite.Database.Tables.log
         public DateTime? ResponseDate { get; set; }
         public TimeSpan? TimeTaken { get; set; }
         [Required]
-        public int Archived { get; set; } 
+        public int Archived { get; set; }
     }
 }

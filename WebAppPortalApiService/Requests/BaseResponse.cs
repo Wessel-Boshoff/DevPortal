@@ -1,5 +1,5 @@
-﻿using WebAppPortalSite.Common.Models;
-using WebAppPortalSite.Common.Enums;
+﻿using WebAppPortalSite.Common.Enums;
+using WebAppPortalSite.Common.Models;
 
 namespace WebAppPortalApiService.Requests
 {

@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.Logging;
-using WebAppPortalSite.Core.Mappers.Logs;
-using WebAppPortalSite.Data.Stores.EventLogs;
+using WebAppPortalApi.Core.Mappers.Logs;
+using WebAppPortalApi.Data.Stores.EventLogs;
 
-namespace WebAppPortalSite.Core.Handlers.EventLogs
+namespace WebAppPortalApi.Core.Handlers.EventLogs
 {
-    public class  EventLoggerHandler : ILogger
+    public class EventLoggerHandler : ILogger
     {
-        private static readonly object lockobj = new (); 
+        private static readonly object lockobj = new();
         private readonly IEventLogStore eventLogStore;
 
         public EventLoggerHandler(IEventLogStore eventLogStore)
@@ -25,7 +25,7 @@ namespace WebAppPortalSite.Core.Handlers.EventLogs
                 Task.WaitAll(
                 [
                     Task.Run(() => eventLogStore.Add(logLevel.Map(state?.ToString(), exception), CancellationToken.None))
-                ]);   
+                ]);
             }
         }
     }

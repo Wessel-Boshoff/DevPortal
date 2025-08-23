@@ -1,19 +1,15 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using WebAppPortalSite.Common.Enums;
-using WebAppPortalSite.Common.Options;
-using WebAppPortalSite.Data.Stores.Users;
-using WebAppPortalSite.Database.Tables.dbo;
+using WebAppPortalApi.Common.Enums;
+using WebAppPortalApi.Common.Options;
+using WebAppPortalApi.Data.Stores.Users;
+using WebAppPortalApi.Database.Tables.dbo;
 
-namespace WebAppPortalSite.Core.Utilities.Auths
+namespace WebAppPortalApi.Core.Utilities.Auths
 {
     public class AuthUtility : IAuthUtility
     {
@@ -55,7 +51,7 @@ namespace WebAppPortalSite.Core.Utilities.Auths
             if (!exists)
             {
                 resultAuth.LoginStatus = LoginStatus.InvalidUseramePassword;
-                return Tuple.Create(resultAuth,new User());
+                return Tuple.Create(resultAuth, new User());
             }
 
             var user = await userStore.Get(emailAddress, cancellationToken);
@@ -90,7 +86,7 @@ namespace WebAppPortalSite.Core.Utilities.Auths
 
 
 
-            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(options.SecretKey));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(options.SecretKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var expiry = DateTime.Now.AddMinutes(options.ExpirationMinutes);

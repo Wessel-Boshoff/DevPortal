@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Net.Mail;
-using WebAppPortalSite.Database;
-using WebAppPortalSite.Database.Tables.dbo;
+using WebAppPortalApi.Database;
+using WebAppPortalApi.Database.Tables.dbo;
 
-namespace WebAppPortalSite.Data.Stores.Products
+namespace WebAppPortalApi.Data.Stores.Products
 {
     public class ProductStore : StoreBase, IProductStore
     {

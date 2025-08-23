@@ -1,8 +1,6 @@
-﻿using System.Net.Http.Headers;
-using System.Net.Http;
-using System.Text.Json;
+﻿using Microsoft.Extensions.Options;
 using System.Text;
-using Microsoft.Extensions.Options;
+using System.Text.Json;
 using WebAppPortalSite.Common.Options;
 
 namespace WebAppPortalApiService
@@ -63,7 +61,7 @@ namespace WebAppPortalApiService
             });
         }
 
-        public async Task<TResponse?> Post<TRequest, TResponse>(string endpoint, TRequest data, CancellationToken cancellationToken )
+        public async Task<TResponse?> Post<TRequest, TResponse>(string endpoint, TRequest data, CancellationToken cancellationToken)
         {
             var json = JsonSerializer.Serialize(data);
             var content = new StringContent(json, Encoding.UTF8, "application/json");

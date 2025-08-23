@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.AspNetCore.Mvc;
-using WebAppPortalApiService.Models.Products;
+﻿using WebAppPortalApiService.Models.Products;
 using WebAppPortalApiService.Requests.Products;
 
 namespace WebAppPortalApiService.Services.Products

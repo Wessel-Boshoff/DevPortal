@@ -1,6 +1,6 @@
-﻿using WebAppPortalSite.Common.Models.Dashboards;
+﻿using WebAppPortalApi.Common.Models.Dashboards;
 
-namespace WebAppPortalSite.Core.Requests.Dashboards
+namespace WebAppPortalApi.Core.Requests.Dashboards
 {
     public class GetSummaryResponse : BaseResponse
     {

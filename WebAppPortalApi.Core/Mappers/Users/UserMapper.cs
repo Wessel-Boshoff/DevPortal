@@ -1,9 +1,7 @@
-﻿using FluentValidation.Results;
-using WebAppPortalSite.Common.Enums;
-using WebAppPortalSite.Common.Models;
-using WebAppPortalSite.Common.Models.Users;
+﻿using WebAppPortalApi.Common.Enums;
+using WebAppPortalApi.Common.Models.Users;
 
-namespace WebAppPortalSite.Core.Mappers.Users
+namespace WebAppPortalApi.Core.Mappers.Users
 {
     internal static class UserMapper
     {

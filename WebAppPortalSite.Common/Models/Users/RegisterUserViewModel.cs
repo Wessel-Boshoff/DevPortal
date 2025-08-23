@@ -1,10 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using WebAppPortalSite.Common.Enums;
-using System.Web.Mvc;
-
-
-namespace WebAppPortalSite.Common.Models.Users
+﻿namespace WebAppPortalSite.Common.Models.Users
 {
 
     using System.ComponentModel.DataAnnotations;

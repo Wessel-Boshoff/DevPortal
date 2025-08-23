@@ -1,8 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using WebAppPortalSite.Common.Enums;
-
-namespace WebAppPortalApiService.Models.Users
+﻿namespace WebAppPortalApiService.Models.Users
 {
     public class User : UserMinimal
     {

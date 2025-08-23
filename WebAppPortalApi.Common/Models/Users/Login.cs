@@ -1,8 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using WebAppPortalSite.Common.Enums;
-
-namespace WebAppPortalSite.Common.Models.Users
+﻿namespace WebAppPortalApi.Common.Models.Users
 {
     public class Login
     {

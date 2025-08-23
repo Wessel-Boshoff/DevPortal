@@ -1,15 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
-using Microsoft.Identity.Client;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebAppPortalSite.Data.Stores.EventLogs;
-using WebAppPortalSite.Data.Stores.RequestLogs;
-using WebAppPortalSite.Database.Tables.log;
+﻿using WebAppPortalApi.Data.Stores.RequestLogs;
+using WebAppPortalApi.Database.Tables.log;
 
-namespace WebAppPortalSite.Core.Handlers.RequestLogs
+namespace WebAppPortalApi.Core.Handlers.RequestLogs
 {
     public class RequestLoggerHandler : IRequestLoggerHandler
     {

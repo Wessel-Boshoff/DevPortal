@@ -1,26 +1,11 @@
-using System.Diagnostics;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.Extensions.Options;
-using NuGet.Common;
-using WebAppPortalSite.Common.Models.Users;
-using WebAppPortalApiService.Models.Users;
-using WebAppPortalApiService.Services.Users;
-using WebAppPortalSite.Common.Models;
-using WebAppPortalSite.Mappers.Users;
-using WebAppPortalSite.Common.Options;
-using WebAppPortalSite.Extensions;
 using Microsoft.AspNetCore.Authorization;
-using System.Reflection;
-using WebAppPortalSite.Common.Enums;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Threading;
 using WebAppPortalApiService.Requests;
+using WebAppPortalApiService.Services.Users;
+using WebAppPortalSite.Common.Enums;
+using WebAppPortalSite.Common.Models.Users;
+using WebAppPortalSite.Mappers.Users;
 
 namespace WebAppPortalSite.Controllers;
 
@@ -156,7 +141,7 @@ public class UserController : Controller
     public async Task<AjaxResult> Delete(Guid moniker, CancellationToken cancellationToken)
     {
         AjaxResult response = new();
-         
+
         var result = await userService.Delete(moniker, cancellationToken);
         if (result.ResponseCode == ResponseCode.ValidationFailure)
         {

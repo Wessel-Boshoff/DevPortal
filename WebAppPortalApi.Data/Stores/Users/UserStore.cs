@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Net.Mail;
-using WebAppPortalSite.Database;
-using WebAppPortalSite.Database.Tables.dbo;
+using WebAppPortalApi.Database;
+using WebAppPortalApi.Database.Tables.dbo;
 
-namespace WebAppPortalSite.Data.Stores.Users
+namespace WebAppPortalApi.Data.Stores.Users
 {
     public class UserStore : StoreBase, IUserStore
     {

@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using WebAppPortalSite.Common.Models.Products;
+using WebAppPortalApi.Common.Models.Products;
 
-namespace WebAppPortalSite.Core.Requests.Products
+namespace WebAppPortalApi.Core.Requests.Products
 {
     public class EditProductRequest : IRequest<EditProductResponse>
     {

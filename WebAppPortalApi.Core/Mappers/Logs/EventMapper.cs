@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.Logging;
-using WebAppPortalSite.Database.Tables.log;
+using WebAppPortalApi.Database.Tables.log;
 
-namespace WebAppPortalSite.Core.Mappers.Logs
+namespace WebAppPortalApi.Core.Mappers.Logs
 {
     internal static class EventMapper
     {
-        internal static Event Map(this LogLevel logLevel,string? state , Exception? exception) => new() 
-        { 
+        internal static Event Map(this LogLevel logLevel, string? state, Exception? exception) => new()
+        {
             Exception = exception?.ToString(),
             LogLevel = logLevel.ToString(),
             State = state,

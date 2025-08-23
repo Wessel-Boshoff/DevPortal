@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
 using WebAppPortalApiService.Services.Dashboards;
 using WebAppPortalApiService.Services.Products;
 using WebAppPortalApiService.Services.Users;
-using WebAppPortalSite.Common.Options;
 
 namespace WebAppPortalApiService.Extensions
 {

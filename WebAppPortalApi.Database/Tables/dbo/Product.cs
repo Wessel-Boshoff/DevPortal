@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using WebAppPortalSite.Common.Enums;
 
-namespace WebAppPortalSite.Database.Tables.dbo
+namespace WebAppPortalApi.Database.Tables.dbo
 {
     public class Product
     {
@@ -11,7 +10,7 @@ namespace WebAppPortalSite.Database.Tables.dbo
         [Required]
         [Column(TypeName = "varchar(250)")]
         public string? Name { get; set; }
-   
+
         [Column(TypeName = "varchar(2000)")]
         public string? Description { get; set; }
 
@@ -28,6 +27,6 @@ namespace WebAppPortalSite.Database.Tables.dbo
         public Guid Moniker { get; set; }
         [Required]
         public DateTime Created { get; set; }
-   
+
     }
 }

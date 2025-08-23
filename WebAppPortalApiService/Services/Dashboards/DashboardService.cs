@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.AspNetCore.Mvc;
-using WebAppPortalApiService.Models.Dashboards;
-using WebAppPortalApiService.Requests.Dashboards;
+﻿using WebAppPortalApiService.Requests.Dashboards;
 
 namespace WebAppPortalApiService.Services.Dashboards
 {

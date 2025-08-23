@@ -1,20 +1,12 @@
-using System.Diagnostics;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.Extensions.Options;
-using NuGet.Common;
-using WebAppPortalSite.Common.Models.Users;
+using System.Security.Claims;
 using WebAppPortalApiService.Models.Users;
 using WebAppPortalApiService.Services.Users;
-using WebAppPortalSite.Common.Models;
-using WebAppPortalSite.Mappers.Users;
-using WebAppPortalSite.Common.Options;
+using WebAppPortalSite.Common.Models.Users;
 using WebAppPortalSite.Extensions;
+using WebAppPortalSite.Mappers.Users;
 
 namespace WebAppPortalSite.Controllers;
 
@@ -33,7 +25,7 @@ public class AccountController : Controller
         TempData["returnUrl"] = returnUrl;
         return View();
     }
-    
+
     public IActionResult Login(string returnUrl = "")
     {
         SignOutUser();

@@ -1,12 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Reflection;
-using MediatR;
-using FluentValidation.AspNetCore;
+﻿using Microsoft.AspNetCore.Builder;
+using WebAppPortalApi.Core.Middleware;
 
-using WebAppPortalSite.Core.Middleware;
-using Microsoft.AspNetCore.Builder;
-
-namespace WebAppPortalSite.Core.Extensions
+namespace WebAppPortalApi.Core.Extensions
 {
     internal static class RequestLogExtensions
     {

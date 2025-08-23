@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using WebAppPortalSite.Common.Enums;
+using WebAppPortalApi.Common.Enums;
 
-namespace WebAppPortalSite.Database.Tables.dbo
+namespace WebAppPortalApi.Database.Tables.dbo
 {
     public class User
     {
@@ -10,7 +10,7 @@ namespace WebAppPortalSite.Database.Tables.dbo
         [Required]
         [Column(TypeName = "varchar(254)")]
         public string? EmailAddress { get; set; }
-   
+
         [Column(TypeName = "varchar(2000)")]
         public string? Password { get; set; }
 

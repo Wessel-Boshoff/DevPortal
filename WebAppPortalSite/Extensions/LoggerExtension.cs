@@ -1,7 +1,6 @@
-﻿using WebAppPortalSite.Common.Models.Users;
-using WebAppPortalApiService.Models.Users;
-using WebAppPortalApiService.Requests;
-namespace WebAppPortalSite.Mappers.Users
+﻿using WebAppPortalApiService.Requests;
+using WebAppPortalSite.Extensions;
+namespace WebAppPortalSite.Extensions
 {
     internal static class LoggerExtension
     {

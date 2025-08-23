@@ -1,7 +1,6 @@
-﻿
-using WebAppPortalSite.Database.Tables.log;
+﻿using WebAppPortalApi.Database.Tables.log;
 
-namespace WebAppPortalSite.Data.Stores.EventLogs
+namespace WebAppPortalApi.Data.Stores.EventLogs
 {
     public interface IEventLogStore
     {

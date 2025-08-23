@@ -1,6 +1,6 @@
-﻿using WebAppPortalSite.Common.Models.Users;
+﻿using WebAppPortalApi.Common.Models.Users;
 
-namespace WebAppPortalSite.Core.Requests.Users
+namespace WebAppPortalApi.Core.Requests.Users
 {
     public class AuthUserResponse : BaseResponse
     {

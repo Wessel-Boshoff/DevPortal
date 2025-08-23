@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebAppPortalSite.Common.Enums;
-using WebAppPortalSite.Database.Tables.dbo;
-using WebAppPortalSite.Database.Tables.log;
+using WebAppPortalApi.Common.Enums;
+using WebAppPortalApi.Database.Tables.dbo;
+using WebAppPortalApi.Database.Tables.log;
 
-namespace WebAppPortalSite.Database
+namespace WebAppPortalApi.Database
 {
     public class DBContext : DbContext
     {

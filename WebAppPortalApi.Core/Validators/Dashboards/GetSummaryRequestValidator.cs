@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using WebAppPortalSite.Core.Requests.Dashboards;
+using WebAppPortalApi.Core.Requests.Dashboards;
 
-namespace WebAppPortalSite.Core.Validators.Dashboards
+namespace WebAppPortalApi.Core.Validators.Dashboards
 {
     public class GetSummaryRequestValidator : AbstractValidator<GetSummaryRequest>
     {

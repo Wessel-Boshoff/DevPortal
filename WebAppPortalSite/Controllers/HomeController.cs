@@ -1,10 +1,8 @@
-using System.Diagnostics;
-using System.Reflection;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using WebAppPortalApiService.Requests;
 using WebAppPortalApiService.Services.Dashboards;
-using WebAppPortalApiService.Services.Users;
 using WebAppPortalSite.Common.Enums;
 using WebAppPortalSite.Common.Models;
 using WebAppPortalSite.Mappers.Dashboards;
@@ -32,7 +30,7 @@ public class HomeController : Controller
 
     public async Task<AjaxResult> LoadSummary(CancellationToken cancellationToken)
     {
-        AjaxResult response = new ();
+        AjaxResult response = new();
         var result = await dashboardService.Get(cancellationToken);
         if (result.ResponseCode == Common.Enums.ResponseCode.ValidationFailure)
         {
@@ -45,7 +43,7 @@ public class HomeController : Controller
         {
             //   logger.LogError(result);
             response.Message = "Unable to load due to an error";
-            response.Errors.Add(new Error() {  Value = response.Message });
+            response.Errors.Add(new Error() { Value = response.Message });
             response.ResponseCode = ResponseCode.Error;
             return response;
         }

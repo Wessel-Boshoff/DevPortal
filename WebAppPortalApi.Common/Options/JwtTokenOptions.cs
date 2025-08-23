@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WebAppPortalSite.Common.Options
+﻿namespace WebAppPortalApi.Common.Options
 {
-   public class JwtTokenOptions
+    public class JwtTokenOptions
     {
         public string SecretKey { get; set; } = "";
         public string Issuer { get; set; } = "";

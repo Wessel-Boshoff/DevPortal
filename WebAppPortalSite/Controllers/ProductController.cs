@@ -1,27 +1,12 @@
-using System.Diagnostics;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.Extensions.Options;
-using NuGet.Common;
-using WebAppPortalSite.Common.Models.Products;
-using WebAppPortalApiService.Models.Products;
-using WebAppPortalApiService.Services.Products;
-using WebAppPortalSite.Common.Models;
-using WebAppPortalSite.Mappers.Products;
-using WebAppPortalSite.Common.Options;
-using WebAppPortalSite.Extensions;
 using Microsoft.AspNetCore.Authorization;
-using System.Reflection;
-using WebAppPortalSite.Common.Enums;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Threading;
 using WebAppPortalApiService.Requests;
+using WebAppPortalApiService.Services.Products;
 using WebAppPortalApiService.Services.Users;
+using WebAppPortalSite.Common.Enums;
+using WebAppPortalSite.Common.Models.Products;
+using WebAppPortalSite.Mappers.Products;
 
 namespace WebAppPortalSite.Controllers;
 
@@ -195,7 +180,7 @@ public class ProductController : Controller
         var users = resultUsers.Users.Select(r => new SelectListItem
         {
             Value = r.Moniker.ToString(),
-            Text = $"{r.FirstNames} {r.LastName}" ,
+            Text = $"{r.FirstNames} {r.LastName}",
             Selected = r.Moniker == model.UserMoniker
         });
 

@@ -1,10 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Reflection;
-using System.Security.Claims;
-using System.Text;
-using WebAppPortalApiService.Extensions;
+﻿using WebAppPortalApiService.Extensions;
 using WebAppPortalSite.Common.Options;
 namespace WebAppPortalSite.Extensions
 {
@@ -30,12 +24,12 @@ namespace WebAppPortalSite.Extensions
                 options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
                 options.Cookie.SameSite = SameSiteMode.Strict;
             });
- 
+
 
             return builder;
         }
 
- 
+
         public static WebApplication UseSiteExtensions(this WebApplication app)
         {
 

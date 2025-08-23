@@ -1,18 +1,17 @@
-﻿using System.Reflection;
-using WebAppPortalSite.Data.Stores.Users;
-using WebAppPortalSite.Data.Stores.RequestLogs;
-using WebAppPortalSite.Data.Stores.EventLogs;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using WebAppPortalSite.Data.Stores.Products;
+using WebAppPortalApi.Data.Stores.EventLogs;
+using WebAppPortalApi.Data.Stores.Products;
+using WebAppPortalApi.Data.Stores.RequestLogs;
+using WebAppPortalApi.Data.Stores.Users;
 
-namespace WebAppPortalSite.Data.Extensions
+namespace WebAppPortalApi.Data.Extensions
 {
     public static class DataExtensions
     {
         public static WebApplicationBuilder AddDataExtensions(this WebApplicationBuilder builder)
         {
-            
+
             builder.Services.AddScoped<IUserStore, UserStore>();
             builder.Services.AddScoped<IProductStore, ProductStore>();
 

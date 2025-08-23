@@ -1,14 +1,11 @@
 ﻿using MediatR;
-using WebAppPortalSite.Common.Enums;
-using WebAppPortalSite.Core.Mappers.Errors;
-using WebAppPortalSite.Core.Mappers.Logs;
-using WebAppPortalSite.Core.Mappers.Users;
-using WebAppPortalSite.Core.Requests.Users;
-using WebAppPortalSite.Core.Utilities.Auths;
-using WebAppPortalSite.Core.Validators.Users;
-using WebAppPortalSite.Data.Stores.Users;
+using WebAppPortalApi.Common.Enums;
+using WebAppPortalApi.Core.Mappers.Errors;
+using WebAppPortalApi.Core.Requests.Users;
+using WebAppPortalApi.Core.Validators.Users;
+using WebAppPortalApi.Data.Stores.Users;
 
-namespace WebAppPortalSite.Core.Handlers.Users
+namespace WebAppPortalApi.Core.Handlers.Users
 {
     public class RemoveUserHandler : IRequestHandler<RemoveUserRequest, RemoveUserResponse>
     {
@@ -35,7 +32,7 @@ namespace WebAppPortalSite.Core.Handlers.Users
             }
 
             var user = await userStore.Get(request.Moniker, cancellationToken);
-            await userStore.Remove(user,cancellationToken);
+            await userStore.Remove(user, cancellationToken);
 
             response.Message = "Request was processed successfully";
             response.ResponseCode = ResponseCode.Successful;

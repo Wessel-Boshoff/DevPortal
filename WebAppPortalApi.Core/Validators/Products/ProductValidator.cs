@@ -1,9 +1,8 @@
 ﻿using FluentValidation;
-using WebAppPortalSite.Common.Models.Products;
-using WebAppPortalSite.Core.Requests.Products;
-using WebAppPortalSite.Data.Stores.Users;
+using WebAppPortalApi.Common.Models.Products;
+using WebAppPortalApi.Data.Stores.Users;
 
-namespace WebAppPortalSite.Core.Validators.Products
+namespace WebAppPortalApi.Core.Validators.Products
 {
     public class ProductValidator : AbstractValidator<Product>
     {

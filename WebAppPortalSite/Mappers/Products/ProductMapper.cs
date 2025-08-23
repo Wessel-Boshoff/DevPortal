@@ -1,7 +1,6 @@
-﻿using WebAppPortalSite.Common.Models.Products;
-using WebAppPortalApiService.Models.Products;
+﻿using WebAppPortalApiService.Models.Products;
 using WebAppPortalApiService.Models.Users;
-using WebAppPortalSite.Common.Enums;
+using WebAppPortalSite.Common.Models.Products;
 namespace WebAppPortalSite.Mappers.Products
 {
     internal static class ProductMapper
@@ -10,7 +9,7 @@ namespace WebAppPortalSite.Mappers.Products
         {
             Moniker = model.Moniker,
             User = new User()
-            { 
+            {
                 Moniker = model.UserMoniker
             },
             Description = model.Description,
@@ -27,7 +26,7 @@ namespace WebAppPortalSite.Mappers.Products
             Name = model.Name,
             ImageBase64Thumbnail = model.ImageBase64Thumbnail,
             Extension = model.Extension
-            
+
         };
 
         internal static ProductViewModel MapProduct(this Product model) => model == default ? new() : new()
@@ -37,7 +36,7 @@ namespace WebAppPortalSite.Mappers.Products
             ImageBase64 = model.ImageBase64,
             Name = model.Name,
             UserMoniker = model.User.Moniker,
-            UserEmailAddress =model.User.EmailAddress,
+            UserEmailAddress = model.User.EmailAddress,
             UserFirstNames = model.User.FirstNames,
             UserLastName = model.User.LastName,
             Created = model.Created

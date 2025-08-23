@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebAppPortalSite.Common.Enums;
+﻿using WebAppPortalApi.Common.Enums;
 
-namespace WebAppPortalSite.Common.Models.Users
+namespace WebAppPortalApi.Common.Models.Users
 {
     public class Auth
     {

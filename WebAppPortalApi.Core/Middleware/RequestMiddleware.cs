@@ -1,19 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System.Text;
-using System;
-using System.Web;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using WebAppPortalSite.Core.Handlers.RequestLogs;
-using System.Net;
 using Microsoft.AspNetCore.Http.Extensions;
-using WebAppPortalSite.Database.Tables.log;
+using Microsoft.Extensions.Logging;
+using System.Net;
+using System.Text;
+using WebAppPortalApi.Core.Handlers.RequestLogs;
+using WebAppPortalApi.Database.Tables.log;
 
-namespace WebAppPortalSite.Core.Middleware
+namespace WebAppPortalApi.Core.Middleware
 {
     public class RequestMiddleware
     {
-        
+
 
 
 

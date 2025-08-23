@@ -1,5 +1,4 @@
-﻿using WebAppPortalSite.Common.Models.Users;
-using WebAppPortalApiService.Models.Users;
+﻿using WebAppPortalApiService.Models.Users;
 
 namespace WebAppPortalApiService.Requests.Users
 {

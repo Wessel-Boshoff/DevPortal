@@ -1,9 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using WebAppPortalSite.Common.Models.Users;
-using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebAppPortalSite.Common.Models.Products
 {

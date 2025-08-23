@@ -1,8 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using WebAppPortalSite.Common.Enums;
-
-namespace WebAppPortalSite.Common.Models.Products
+﻿namespace WebAppPortalApi.Common.Models.Products
 {
     public class ProductMinimal
     {

@@ -1,9 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
-using System;
-using WebAppPortalSite.Core.Handlers.EventLogs;
-using WebAppPortalSite.Data.Stores.EventLogs;
+using WebAppPortalApi.Core.Handlers.EventLogs;
+using WebAppPortalApi.Data.Stores.EventLogs;
 
-namespace WebAppPortalSite.Core.Providers
+namespace WebAppPortalApi.Core.Providers
 {
     public class EventLoggerProvider : ILoggerProvider
     {
@@ -19,7 +18,7 @@ namespace WebAppPortalSite.Core.Providers
 
         public void Dispose()
         {
-     
+
         }
     }
 }

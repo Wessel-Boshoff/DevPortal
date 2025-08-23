@@ -1,6 +1,6 @@
-﻿using WebAppPortalSite.Common.Models.Users;
+﻿using WebAppPortalApi.Common.Models.Users;
 
-namespace WebAppPortalSite.Core.Utilities.Auths
+namespace WebAppPortalApi.Core.Utilities.Auths
 {
     public interface IAuthUtility
     {

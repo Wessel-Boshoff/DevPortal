@@ -1,4 +1,4 @@
-﻿namespace WebAppPortalSite.Common.Enums
+﻿namespace WebAppPortalApi.Common.Enums
 {
     public enum LoginStatus
     {
@@ -7,6 +7,6 @@
         Locked = 2,
         Successful = 3,
         NeedPassword = 4
-        
+
     }
 }

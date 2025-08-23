@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WebAppPortalSite.Common.Resources;
 
-namespace WebAppPortalSite.Extensions
+namespace WebAppPortalApi.Core.Extensions
 {
     public static class ThumbnailExtensions
     {
@@ -26,7 +19,7 @@ namespace WebAppPortalSite.Extensions
         };
 
 
-        public static byte[] GetThumbnail(this byte[]? data , string? extension)
+        public static byte[] GetThumbnail(this byte[]? data, string? extension)
         {
             if (data == null || extension == null)
             {
@@ -35,16 +28,16 @@ namespace WebAppPortalSite.Extensions
 
             if (supportedPhotoExtensions.Any(c => c.ToLower() == extension.ToLower()))
             {
-                return GetThumbnailPhoto(data, extension);
+                return data.GetThumbnailPhoto(extension);
             }
 
-            return GetThumbnailPhoto(Convert.FromBase64String(FileThumbs.Fallback), extension);
+            return Convert.FromBase64String(FileThumbs.Fallback).GetThumbnailPhoto(extension);
         }
 
         private static byte[] GetThumbnailPhoto(this byte[]? dataToThumb, string? extension)
         {
             using MemoryStream ms = new(dataToThumb);
-            using System.Drawing.Image originalImage = System.Drawing.Image.FromStream(ms);
+            using Image originalImage = Image.FromStream(ms);
 
             double aspectRatio = (double)originalImage.Width / originalImage.Height;
             int newWidth = (int)(targetHeight * aspectRatio);

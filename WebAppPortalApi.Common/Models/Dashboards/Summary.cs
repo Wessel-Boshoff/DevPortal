@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WebAppPortalSite.Common.Models.Dashboards
+﻿namespace WebAppPortalApi.Common.Models.Dashboards
 {
     public class Summary
     {

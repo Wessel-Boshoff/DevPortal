@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace WebAppPortalApiService.Models.Products
+﻿namespace WebAppPortalApiService.Models.Products
 {
     public class ProductMinimal
     {

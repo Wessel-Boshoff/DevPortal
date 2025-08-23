@@ -1,9 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Net;
-using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebAppPortalSite.Database.Tables.log
+namespace WebAppPortalApi.Database.Tables.log
 {
     [Table("Events", Schema = "log")]
     public class Event
@@ -11,14 +9,14 @@ namespace WebAppPortalSite.Database.Tables.log
         public int Id { get; set; }
         [Required]
         [Column(TypeName = "varchar(80)")]
-        public string? LogLevel { get; set; } 
+        public string? LogLevel { get; set; }
         [Required]
         [Column(TypeName = "varchar(max)")]
-        public string? State { get; set; } 
-        [Column( TypeName = "varchar(max)")]
-        public string? StackTrace { get; set; } 
+        public string? State { get; set; }
         [Column(TypeName = "varchar(max)")]
-        public string? Exception { get; set; } 
+        public string? StackTrace { get; set; }
+        [Column(TypeName = "varchar(max)")]
+        public string? Exception { get; set; }
         [Required]
         public DateTime TimeStamp { get; set; }
     }

@@ -1,6 +1,6 @@
-﻿using WebAppPortalSite.Database.Tables.dbo;
+﻿using WebAppPortalApi.Database.Tables.dbo;
 
-namespace WebAppPortalSite.Data.Stores.Products
+namespace WebAppPortalApi.Data.Stores.Products
 {
     public interface IProductStore
     {

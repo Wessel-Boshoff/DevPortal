@@ -1,7 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using WebAppPortalSite.Common.Enums;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WebAppPortalSite.Common.Models.Users
 {
@@ -30,7 +28,7 @@ namespace WebAppPortalSite.Common.Models.Users
 
         [DisplayName("Role")]
         [Required(ErrorMessage = "Role is required.")]
-        public Role Role { get; set; } 
+        public Role Role { get; set; }
         public SelectList? Roles { get; set; }
         public Guid Moniker { get; set; }
     }
