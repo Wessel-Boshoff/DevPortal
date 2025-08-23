@@ -19,9 +19,18 @@ namespace WebAppPortalSite.Extensions
             builder.AddAuthExtensions();
             builder.AddServiceExtensions();
             builder.Services.AddLogging();
-            builder.Services.AddSession();
-            //Handlers
-            //   builder.Services.AddScoped<IRequestLoggerHandler, RequestLoggerHandler>();
+            builder.Services.AddSession(options =>
+            {
+                var apiJwtTokenOptions = builder.Configuration
+                    .GetSection(nameof(JwtTokenOptions))
+                    .Get<JwtTokenOptions>() ?? new();
+
+                options.IdleTimeout = TimeSpan.FromMinutes(apiJwtTokenOptions.ExpirationMinutes - 5);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+                options.Cookie.SameSite = SameSiteMode.Strict;
+            });
+ 
 
             return builder;
         }

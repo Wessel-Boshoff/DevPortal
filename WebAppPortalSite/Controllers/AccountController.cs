@@ -27,6 +27,13 @@ public class AccountController : Controller
         this.userService = userService;
     }
 
+    public IActionResult AccessDenied(string returnUrl = "")
+    {
+        SignOutUser();
+        TempData["returnUrl"] = returnUrl;
+        return View();
+    }
+    
     public IActionResult Login(string returnUrl = "")
     {
         SignOutUser();
@@ -160,15 +167,38 @@ public class AccountController : Controller
         HttpContext.SetSession(user.Map());
 
         var readToken = auth.Token.ReadJWTToken();
-        //here im illustrating how you can dynamically set claims between your token we use on api and making use of the built in auth we have with mvc
+
+        var claims = readToken.Claims.ToList();
+
+        var roleClaim = claims.FirstOrDefault(c =>
+            c.Type == "role" ||
+            c.Type == "roles" ||
+            c.Type == ClaimTypes.Role ||
+            c.Type.EndsWith("/role"));
+
+        if (roleClaim != null)
+        {
+            claims.RemoveAll(c =>
+                c.Type == "role" ||
+                c.Type == "roles" ||
+                c.Type == ClaimTypes.Role ||
+                c.Type.EndsWith("/role"));
+
+            claims.Add(new Claim(ClaimTypes.Role, roleClaim.Value));
+        }
+
+        var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        var principal = new ClaimsPrincipal(identity);
+
         await HttpContext.SignInAsync(
             CookieAuthenticationDefaults.AuthenticationScheme,
-            new ClaimsPrincipal(new ClaimsIdentity(readToken.Claims, CookieAuthenticationDefaults.AuthenticationScheme)),
+            principal,
             new AuthenticationProperties
             {
                 IsPersistent = true,
                 ExpiresUtc = DateTime.UtcNow.AddMinutes(auth.ExpireMinutes)
             });
     }
+
 
 }

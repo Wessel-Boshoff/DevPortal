@@ -1,4 +1,5 @@
 using WebAppPortalSite.Extensions;
+using WebAppPortalSite.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 app.UseSession();
+app.UseMiddleware<SessionCheckMiddleware>();
 app.UseSiteExtensions();
 
 app.UseHttpsRedirection();

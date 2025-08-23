@@ -24,7 +24,7 @@ using WebAppPortalApiService.Requests;
 
 namespace WebAppPortalSite.Controllers;
 
-[Authorize]
+[Authorize(Policy = "Admin")]
 public class UserController : Controller
 {
     private readonly IUserService userService;

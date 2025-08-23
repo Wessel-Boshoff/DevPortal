@@ -27,6 +27,8 @@ namespace WebAppPortalSite.Extensions
             return JsonConvert.DeserializeObject<PrimarySession>(Encoding.UTF8.GetString(bytes)) ?? new ();
         }
 
+        public static bool HasSession(this HttpContext context) => context.Session.Keys.Contains(primarySessionKey);
+
         public static void SetSession(this HttpContext context,  PrimarySession session)
         {
             var bytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(session));
