@@ -13,10 +13,12 @@ namespace WebAppPortalSite.Controllers;
 [Authorize(Policy = "Admin")]
 public class UserController : Controller
 {
+    private readonly ILogger<UserController> logger;
     private readonly IUserService userService;
 
-    public UserController(IUserService userService)
+    public UserController(ILogger<UserController> logger, IUserService userService)
     {
+        this.logger = logger;
         this.userService = userService;
     }
 
@@ -36,7 +38,7 @@ public class UserController : Controller
 
         if (!result.Successful)
         {
-            //   logger.LogError(result);
+            logger.LogError(result);
             return View(new List<UserViewModel>());
         }
 
@@ -74,7 +76,7 @@ public class UserController : Controller
 
         if (!result.Successful)
         {
-            //   logger.LogError(result);
+            logger.LogError(result);
             BindUserViewModel(model);
             return View(model);
         }
@@ -103,7 +105,7 @@ public class UserController : Controller
 
         if (!result.Successful)
         {
-            //   logger.LogError(result);
+            logger.LogError(result);
             return View(new UserViewModel());
         }
 
@@ -136,7 +138,7 @@ public class UserController : Controller
 
         if (!result.Successful)
         {
-            //   logger.LogError(result);
+            logger.LogError(result);
             BindUserViewModel(model);
             return View(model);
         }
@@ -161,7 +163,7 @@ public class UserController : Controller
 
         if (!result.Successful)
         {
-            //   logger.LogError(result);
+            logger.LogError(result);
             response.Errors.Add(new WebAppPortalSite.Common.Models.Error() { Value = "Unable to delete user." });
             response.ResponseCode = result.ResponseCode;
             return response;

@@ -15,7 +15,7 @@ namespace WebAppPortalApi.Core.Extensions
             }
 
             summary.TotalUsers = users.Count;
-            summary.TotalActiveUsers = users.Count(c => c.LastSignIn < DateTime.Now.AddDays(30));
+            summary.TotalActiveUsers = users.Where(u => u.LastSignIn.HasValue && u.LastSignIn.Value >= DateTime.Now.AddDays(-7)).Count();
             var userTop = users
             .Where(u => u.LastSignIn >= DateTime.Now.AddDays(-7))
             .OrderByDescending(u => u.Products.Count)

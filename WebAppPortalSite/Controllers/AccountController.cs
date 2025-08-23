@@ -12,10 +12,12 @@ namespace WebAppPortalSite.Controllers;
 
 public class AccountController : Controller
 {
+    private readonly ILogger<AccountController> logger;
     private readonly IUserService userService;
 
-    public AccountController(IUserService userService)
+    public AccountController(ILogger<AccountController> logger, IUserService userService)
     {
+        this.logger = logger;
         this.userService = userService;
     }
 
@@ -102,6 +104,12 @@ public class AccountController : Controller
             return View(model);
         }
 
+        if (!result.Successful)
+        {
+            logger.LogError(result);
+            return View(model);
+        }
+
         await SignInFromAuth(result.Auth, result.User);
         return RedirectToAction("Index", "Home");
     }
@@ -132,7 +140,7 @@ public class AccountController : Controller
 
         if (!result.Successful)
         {
-            //   logger.LogError(result);
+            logger.LogError(result);
             return View(model);
         }
         await SignInFromAuth(result.Auth, result.User);

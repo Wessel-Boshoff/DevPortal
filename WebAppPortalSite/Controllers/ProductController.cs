@@ -14,11 +14,13 @@ namespace WebAppPortalSite.Controllers;
 [Authorize]
 public class ProductController : Controller
 {
+    private readonly ILogger<ProductController> logger;
     private readonly IProductService productService;
     private readonly IUserService userService;
 
-    public ProductController(IProductService productService, IUserService userService)
+    public ProductController(ILogger<ProductController> logger, IProductService productService, IUserService userService)
     {
+        this.logger = logger;
         this.productService = productService;
         this.userService = userService;
     }
@@ -38,7 +40,7 @@ public class ProductController : Controller
 
         if (!result.Successful)
         {
-            //   logger.LogError(result);
+            logger.LogError(result);
             return View(new List<ProductViewModel>());
         }
 
@@ -75,7 +77,7 @@ public class ProductController : Controller
 
         if (!result.Successful)
         {
-            //   logger.LogError(result);
+            logger.LogError(result);
             await BindProductViewModel(model, cancellationToken);
             return View(model);
         }
@@ -104,7 +106,7 @@ public class ProductController : Controller
 
         if (!result.Successful)
         {
-            //   logger.LogError(result);
+            logger.LogError(result);
             return View(new ProductViewModel());
         }
 
@@ -137,7 +139,7 @@ public class ProductController : Controller
 
         if (!result.Successful)
         {
-            //   logger.LogError(result);
+            logger.LogError(result);
             await BindProductViewModel(model, cancellationToken);
             return View(model);
         }
@@ -162,7 +164,7 @@ public class ProductController : Controller
 
         if (!result.Successful)
         {
-            //   logger.LogError(result);
+            logger.LogError(result);
             response.Errors.Add(new WebAppPortalSite.Common.Models.Error() { Value = "Unable to delete user." });
             response.ResponseCode = result.ResponseCode;
             return response;

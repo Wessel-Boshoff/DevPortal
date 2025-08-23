@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebAppPortalApi.Common.Enums;
+using WebAppPortalApi.Database.Extensions;
 using WebAppPortalApi.Database.Tables.dbo;
 using WebAppPortalApi.Database.Tables.log;
 
@@ -10,6 +11,9 @@ namespace WebAppPortalApi.Database
         public DBContext(DbContextOptions<DBContext> options) : base(options)
         {
             Database.Migrate();
+            #if DEBUG
+                this.Seed();
+            #endif
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

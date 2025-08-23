@@ -13,12 +13,12 @@ namespace WebAppPortalSite.Controllers;
 [Authorize]
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly ILogger<HomeController> logger;
     private readonly IDashboardService dashboardService;
 
     public HomeController(ILogger<HomeController> logger, IDashboardService dashboardService)
     {
-        _logger = logger;
+        this.logger = logger;
         this.dashboardService = dashboardService;
     }
 
@@ -44,7 +44,7 @@ public class HomeController : Controller
 
         if (!result.Successful)
         {
-            //   logger.LogError(result);
+            logger.LogError(result);
             response.Message = "Unable to load due to an error";
             response.Errors.Add(new Error() { Value = response.Message });
             response.ResponseCode = ResponseCode.Error;
