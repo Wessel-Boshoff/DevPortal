@@ -43,4 +43,9 @@ public class UsersController : ControllerBase
     public async Task<IActionResult> Login(Login model, CancellationToken cancellationToken) =>
         Ok(await mediator.Send(new AuthUserRequest() { Login = model }, cancellationToken));
 
+    [HttpPost]
+    [Route("SetPassword")]
+    public async Task<IActionResult> SetPassword(Login model, CancellationToken cancellationToken) =>
+        Ok(await mediator.Send(new SetUserPasswordRequest() { Login = model }, cancellationToken));
+
 }

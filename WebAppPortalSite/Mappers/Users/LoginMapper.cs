@@ -10,5 +10,11 @@ namespace WebAppPortalSite.Mappers.Users
             EmailAddress = model.EmailAddress,
             Password = model.Password
         };
+
+        internal static Login Map(this SetPasswordViewModel model) => model == default ? new() : new()
+        {
+            EmailAddress = model.EmailAddress,
+            Password = model.Password
+        };
     }
 }

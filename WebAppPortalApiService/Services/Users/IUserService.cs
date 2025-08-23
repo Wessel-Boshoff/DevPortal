@@ -11,5 +11,6 @@ namespace WebAppPortalApiService.Services.Users
         Task<GetUsersResponse> Get(CancellationToken cancellationToken);
         Task<GetUserResponse> Get(Guid moniker, CancellationToken cancellationToken);
         Task<AuthUserResponse> Login(Login request, CancellationToken cancellationToken);
+        Task<SetUserPasswordResponse> SetPassword(Login request, CancellationToken cancellationToken);
     }
 }

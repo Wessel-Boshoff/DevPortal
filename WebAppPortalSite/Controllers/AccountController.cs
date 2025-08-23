@@ -79,6 +79,34 @@ public class AccountController : Controller
         return string.IsNullOrWhiteSpace(returnUrl) ? RedirectToAction("Index", "Home") : Redirect(returnUrl);
     }
 
+
+    public IActionResult SetPassword()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> SetPassword(SetPasswordViewModel model, CancellationToken cancellationToken)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+
+        var result = await userService.SetPassword(model.Map(), cancellationToken);
+        if (result.ResponseCode == Common.Enums.ResponseCode.ValidationFailure)
+        {
+            foreach (var item in result.Errors.Select(c => c.Value))
+            {
+                ModelState.AddModelError("", item ?? "");
+            }
+            return View(model);
+        }
+
+        await SignInFromAuth(result.Auth, result.User);
+        return RedirectToAction("Index", "Home");
+    }
+
     public IActionResult Register()
     {
         SignOutUser();

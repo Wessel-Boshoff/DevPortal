@@ -39,7 +39,7 @@ namespace WebAppPortalSite.Core.Utilities.Auths
 
             user.Salt = saltBase64;
             user.Password = hashedPassword;
-
+            user.RegistrationStatus = RegistrationStatus.Full;
 
             await userStore.SaveChanges(cancellationToken);
 

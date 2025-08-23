@@ -32,5 +32,8 @@ namespace WebAppPortalApiService.Services.Users
         public async Task<AuthUserResponse> Login(Login request, CancellationToken cancellationToken) =>
             await apiService.Post<Login, AuthUserResponse>("Users/Login", request, cancellationToken) ?? new();
 
+        public async Task<SetUserPasswordResponse> SetPassword(Login request, CancellationToken cancellationToken) =>
+             await apiService.Post<Login, SetUserPasswordResponse>("Users/SetPassword", request, cancellationToken) ?? new();
+
     }
 }
