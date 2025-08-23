@@ -6,6 +6,7 @@ using WebAppPortalApiService.Services.Products;
 using WebAppPortalApiService.Services.Users;
 using WebAppPortalSite.Common.Enums;
 using WebAppPortalSite.Common.Models.Products;
+using WebAppPortalSite.Extensions;
 using WebAppPortalSite.Mappers.Products;
 
 namespace WebAppPortalSite.Controllers;
@@ -24,7 +25,8 @@ public class ProductController : Controller
 
     public async Task<IActionResult> Index(CancellationToken cancellationToken)
     {
-        var result = await productService.Get(cancellationToken);
+        var session = Request.HttpContext.GetSession();
+        var result = await productService.Get(cancellationToken, session.ApiToken);
         if (result.ResponseCode == ResponseCode.ValidationFailure)
         {
             foreach (var item in result.Errors.Select(c => c.Value))
@@ -59,7 +61,8 @@ public class ProductController : Controller
             return View(model);
         }
 
-        var result = await productService.Add(model.Map(), cancellationToken);
+        var session = Request.HttpContext.GetSession();
+        var result = await productService.Add(model.Map(), cancellationToken, session.ApiToken);
         if (result.ResponseCode == ResponseCode.ValidationFailure)
         {
             foreach (var item in result.Errors.Select(c => c.Value))
@@ -88,7 +91,8 @@ public class ProductController : Controller
             return View(new ProductViewModel());
         }
 
-        var result = await productService.Get(moniker, cancellationToken);
+        var session = Request.HttpContext.GetSession();
+        var result = await productService.Get(moniker, cancellationToken, session.ApiToken);
         if (result.ResponseCode == ResponseCode.ValidationFailure)
         {
             foreach (var item in result.Errors.Select(c => c.Value))
@@ -119,7 +123,8 @@ public class ProductController : Controller
             return View(model);
         }
 
-        var result = await productService.Edit(model.Map(), cancellationToken);
+        var session = Request.HttpContext.GetSession();
+        var result = await productService.Edit(model.Map(), cancellationToken, session.ApiToken);
         if (result.ResponseCode == ResponseCode.ValidationFailure)
         {
             foreach (var item in result.Errors.Select(c => c.Value))
@@ -145,7 +150,8 @@ public class ProductController : Controller
     {
         AjaxResult response = new();
 
-        var result = await productService.Delete(moniker, cancellationToken);
+        var session = Request.HttpContext.GetSession();
+        var result = await productService.Delete(moniker, cancellationToken, session.ApiToken);
         if (result.ResponseCode == ResponseCode.ValidationFailure)
         {
             response.Errors = result.Errors;
@@ -170,7 +176,8 @@ public class ProductController : Controller
 
     private async Task<ProductViewModel> BindProductViewModel(ProductViewModel model, CancellationToken cancellationToken)
     {
-        var resultUsers = await userService.Get(cancellationToken);
+        var session = Request.HttpContext.GetSession();
+        var resultUsers = await userService.Get(cancellationToken, session.ApiToken);
         if (!resultUsers.Successful)
         {
             //   logger.LogError(result);

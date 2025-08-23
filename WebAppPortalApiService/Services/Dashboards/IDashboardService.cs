@@ -4,6 +4,6 @@ namespace WebAppPortalApiService.Services.Dashboards
 {
     public interface IDashboardService
     {
-        Task<GetSummaryResponse> Get(CancellationToken cancellationToken);
+        Task<GetSummaryResponse> Get(CancellationToken cancellationToken, string token);
     }
 }

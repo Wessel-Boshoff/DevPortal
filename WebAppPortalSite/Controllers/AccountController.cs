@@ -156,13 +156,13 @@ public class AccountController : Controller
     private async Task SignInFromAuth(Auth auth, User user)
     {
         SignOutUser();
-        HttpContext.SetSession(user.Map());
+        HttpContext.SetSession(user.Map(auth.Token ?? ""));
 
-        var readToken = auth.Token.ReadJWTToken();
+        var readToken = auth.Token?.ReadJWTToken();
 
-        var claims = readToken.Claims.ToList();
+        var claims = readToken?.Claims.ToList();
 
-        var roleClaim = claims.FirstOrDefault(c =>
+        var roleClaim = claims?.FirstOrDefault(c =>
             c.Type == "role" ||
             c.Type == "roles" ||
             c.Type == ClaimTypes.Role ||
@@ -170,13 +170,13 @@ public class AccountController : Controller
 
         if (roleClaim != null)
         {
-            claims.RemoveAll(c =>
+            claims?.RemoveAll(c =>
                 c.Type == "role" ||
                 c.Type == "roles" ||
                 c.Type == ClaimTypes.Role ||
                 c.Type.EndsWith("/role"));
 
-            claims.Add(new Claim(ClaimTypes.Role, roleClaim.Value));
+            claims?.Add(new Claim(ClaimTypes.Role, roleClaim.Value));
         }
 
         var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

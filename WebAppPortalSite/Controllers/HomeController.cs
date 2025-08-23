@@ -5,6 +5,7 @@ using WebAppPortalApiService.Requests;
 using WebAppPortalApiService.Services.Dashboards;
 using WebAppPortalSite.Common.Enums;
 using WebAppPortalSite.Common.Models;
+using WebAppPortalSite.Extensions;
 using WebAppPortalSite.Mappers.Dashboards;
 
 namespace WebAppPortalSite.Controllers;
@@ -31,7 +32,9 @@ public class HomeController : Controller
     public async Task<AjaxResult> LoadSummary(CancellationToken cancellationToken)
     {
         AjaxResult response = new();
-        var result = await dashboardService.Get(cancellationToken);
+
+        var session = Request.HttpContext.GetSession();
+        var result = await dashboardService.Get(cancellationToken, session.ApiToken);
         if (result.ResponseCode == Common.Enums.ResponseCode.ValidationFailure)
         {
             response.Errors.AddRange(result.Errors);

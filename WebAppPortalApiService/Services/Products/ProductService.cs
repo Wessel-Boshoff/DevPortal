@@ -12,20 +12,20 @@ namespace WebAppPortalApiService.Services.Products
             this.apiService = apiService;
         }
 
-        public async Task<GetProductsResponse> Get(CancellationToken cancellationToken) =>
-            await apiService.Get<GetProductsResponse>("Products", cancellationToken) ?? new();
+        public async Task<GetProductsResponse> Get(CancellationToken cancellationToken, string token) =>
+            await apiService.Get<GetProductsResponse>("Products", cancellationToken, token) ?? new();
 
-        public async Task<GetProductResponse> Get(Guid moniker, CancellationToken cancellationToken) =>
-           await apiService.Get<GetProductResponse>($"Products/{moniker}", cancellationToken) ?? new();
+        public async Task<GetProductResponse> Get(Guid moniker, CancellationToken cancellationToken, string token) =>
+           await apiService.Get<GetProductResponse>($"Products/{moniker}", cancellationToken, token) ?? new();
 
-        public async Task<RemoveProductResponse> Delete(Guid moniker, CancellationToken cancellationToken) =>
-           await apiService.Delete<RemoveProductResponse>($"Products/{moniker}", cancellationToken) ?? new();
+        public async Task<RemoveProductResponse> Delete(Guid moniker, CancellationToken cancellationToken, string token) =>
+           await apiService.Delete<RemoveProductResponse>($"Products/{moniker}", cancellationToken, token) ?? new();
 
-        public async Task<EditProductResponse> Edit(Product request, CancellationToken cancellationToken) =>
-           await apiService.Put<Product, EditProductResponse>("Products", request, cancellationToken) ?? new();
+        public async Task<EditProductResponse> Edit(Product request, CancellationToken cancellationToken, string token) =>
+           await apiService.Put<Product, EditProductResponse>("Products", request, cancellationToken, token) ?? new();
 
-        public async Task<AddProductResponse> Add(Product request, CancellationToken cancellationToken) =>
-           await apiService.Post<Product, AddProductResponse>("Products", request, cancellationToken) ?? new();
+        public async Task<AddProductResponse> Add(Product request, CancellationToken cancellationToken, string token) =>
+           await apiService.Post<Product, AddProductResponse>("Products", request, cancellationToken, token) ?? new();
 
 
     }

@@ -1,10 +1,12 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebAppPortalApi.Common.Models.Users;
 using WebAppPortalApi.Core.Requests.Users;
 
 namespace WebAppPortalApi.Controllers;
 
+[Authorize(Policy = "Admin")]
 [ApiController]
 [Route("[controller]")]
 public class UsersController : ControllerBase
@@ -34,15 +36,18 @@ public class UsersController : ControllerBase
     public async Task<IActionResult> Edit(User model, CancellationToken cancellationToken) =>
         Ok(await mediator.Send(new EditUserRequest() { User = model }, cancellationToken));
 
+    [AllowAnonymous]
     [HttpPost]
     public async Task<IActionResult> Add(User model, CancellationToken cancellationToken) =>
         Ok(await mediator.Send(new AddUserRequest() { User = model }, cancellationToken));
 
+    [AllowAnonymous]
     [HttpPost]
     [Route("Login")]
     public async Task<IActionResult> Login(Login model, CancellationToken cancellationToken) =>
         Ok(await mediator.Send(new AuthUserRequest() { Login = model }, cancellationToken));
 
+    [AllowAnonymous]
     [HttpPost]
     [Route("SetPassword")]
     public async Task<IActionResult> SetPassword(Login model, CancellationToken cancellationToken) =>

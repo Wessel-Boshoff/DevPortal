@@ -11,7 +11,7 @@ namespace WebAppPortalApiService.Services.Dashboards
             this.apiService = apiService;
         }
 
-        public async Task<GetSummaryResponse> Get(CancellationToken cancellationToken) =>
-            await apiService.Get<GetSummaryResponse>("Dashboards", cancellationToken) ?? new();
+        public async Task<GetSummaryResponse> Get(CancellationToken cancellationToken, string token) =>
+            await apiService.Get<GetSummaryResponse>("Dashboards", cancellationToken, token) ?? new();
     }
 }

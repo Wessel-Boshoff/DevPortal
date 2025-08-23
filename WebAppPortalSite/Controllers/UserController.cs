@@ -5,6 +5,7 @@ using WebAppPortalApiService.Requests;
 using WebAppPortalApiService.Services.Users;
 using WebAppPortalSite.Common.Enums;
 using WebAppPortalSite.Common.Models.Users;
+using WebAppPortalSite.Extensions;
 using WebAppPortalSite.Mappers.Users;
 
 namespace WebAppPortalSite.Controllers;
@@ -21,7 +22,9 @@ public class UserController : Controller
 
     public async Task<IActionResult> Index(CancellationToken cancellationToken)
     {
-        var result = await userService.Get(cancellationToken);
+        var session = Request.HttpContext.GetSession();
+
+        var result = await userService.Get(cancellationToken, session.ApiToken);
         if (result.ResponseCode == ResponseCode.ValidationFailure)
         {
             foreach (var item in result.Errors.Select(c => c.Value))
@@ -56,6 +59,8 @@ public class UserController : Controller
             return View(model);
         }
 
+        var session = Request.HttpContext.GetSession();
+
         var result = await userService.Add(model.Map(), cancellationToken);
         if (result.ResponseCode == ResponseCode.ValidationFailure)
         {
@@ -85,7 +90,8 @@ public class UserController : Controller
             return View(new UserViewModel());
         }
 
-        var result = await userService.Get(moniker, cancellationToken);
+        var session = Request.HttpContext.GetSession();
+        var result = await userService.Get(moniker, cancellationToken, session.ApiToken);
         if (result.ResponseCode == ResponseCode.ValidationFailure)
         {
             foreach (var item in result.Errors.Select(c => c.Value))
@@ -116,7 +122,8 @@ public class UserController : Controller
             return View(model);
         }
 
-        var result = await userService.Edit(model.Map(), cancellationToken);
+        var session = Request.HttpContext.GetSession();
+        var result = await userService.Edit(model.Map(), cancellationToken, session.ApiToken);
         if (result.ResponseCode == ResponseCode.ValidationFailure)
         {
             foreach (var item in result.Errors.Select(c => c.Value))
@@ -142,7 +149,8 @@ public class UserController : Controller
     {
         AjaxResult response = new();
 
-        var result = await userService.Delete(moniker, cancellationToken);
+        var session = Request.HttpContext.GetSession();
+        var result = await userService.Delete(moniker, cancellationToken, session.ApiToken);
         if (result.ResponseCode == ResponseCode.ValidationFailure)
         {
             response.Errors = result.Errors;

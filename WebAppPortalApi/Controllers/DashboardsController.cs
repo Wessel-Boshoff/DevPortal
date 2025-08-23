@@ -1,9 +1,11 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebAppPortalApi.Core.Requests.Dashboards;
 
 namespace WebAppPortalApi.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("[controller]")]
 public class DashboardsController : ControllerBase

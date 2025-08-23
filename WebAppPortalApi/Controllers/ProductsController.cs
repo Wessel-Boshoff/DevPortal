@@ -1,10 +1,12 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebAppPortalApi.Common.Models.Products;
 using WebAppPortalApi.Core.Requests.Products;
 
 namespace WebAppPortalApi.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("[controller]")]
 public class ProductsController : ControllerBase
