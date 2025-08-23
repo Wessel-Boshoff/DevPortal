@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
-using WebAppPortalApi.Database.Tables.log;
+using WebAppPortalSite.Database.Tables.log;
 
-namespace WebAppPortalApi.Core.Mappers.Logs
+namespace WebAppPortalSite.Core.Mappers.Logs
 {
     internal static class EventMapper
     {

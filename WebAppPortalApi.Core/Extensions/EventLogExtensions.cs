@@ -6,11 +6,11 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using WebAppPortalApi.Core.Providers;
-using WebAppPortalApi.Data.Stores.EventLogs;
+using WebAppPortalSite.Core.Providers;
+using WebAppPortalSite.Data.Stores.EventLogs;
 using Microsoft.AspNetCore.Http;
 
-namespace WebAppPortalApi.Core.Extensions
+namespace WebAppPortalSite.Core.Extensions
 {
     public static class EventLogExtensions
     {

@@ -4,12 +4,12 @@ using System;
 using System.Web;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using WebAppPortalApi.Core.Handlers.RequestLogs;
+using WebAppPortalSite.Core.Handlers.RequestLogs;
 using System.Net;
 using Microsoft.AspNetCore.Http.Extensions;
-using WebAppPortalApi.Database.Tables.log;
+using WebAppPortalSite.Database.Tables.log;
 
-namespace WebAppPortalApi.Core.Middleware
+namespace WebAppPortalSite.Core.Middleware
 {
     public class RequestMiddleware
     {

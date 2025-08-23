@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using WebAppPortalApi.Common.Enums;
+using WebAppPortalSite.Common.Enums;
 
-namespace WebAppPortalApi.Database.Tables.dbo
+namespace WebAppPortalSite.Database.Tables.dbo
 {
     public class User
     {

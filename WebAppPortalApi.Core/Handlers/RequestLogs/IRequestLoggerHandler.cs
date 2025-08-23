@@ -1,7 +1,7 @@
 ﻿
-using WebAppPortalApi.Database.Tables.log;
+using WebAppPortalSite.Database.Tables.log;
 
-namespace WebAppPortalApi.Core.Handlers.RequestLogs
+namespace WebAppPortalSite.Core.Handlers.RequestLogs
 {
     public interface IRequestLoggerHandler
     {

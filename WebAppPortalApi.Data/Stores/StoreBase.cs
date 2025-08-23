@@ -1,7 +1,7 @@
 ﻿
-using WebAppPortalApi.Database;
+using WebAppPortalSite.Database;
 
-namespace WebAppPortalApi.Data.Stores
+namespace WebAppPortalSite.Data.Stores
 {
     public class StoreBase
     {

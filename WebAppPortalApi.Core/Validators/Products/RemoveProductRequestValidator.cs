@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using WebAppPortalApi.Core.Requests.Products;
-using WebAppPortalApi.Data.Stores.Products;
+using WebAppPortalSite.Core.Requests.Products;
+using WebAppPortalSite.Data.Stores.Products;
 
-namespace WebAppPortalApi.Core.Validators.Products
+namespace WebAppPortalSite.Core.Validators.Products
 {
     public class RemoveProductRequestValidator : AbstractValidator<RemoveProductRequest>
     {

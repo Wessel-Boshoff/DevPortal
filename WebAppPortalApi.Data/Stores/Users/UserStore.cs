@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Net.Mail;
-using WebAppPortalApi.Database;
-using WebAppPortalApi.Database.Tables.dbo;
+using WebAppPortalSite.Database;
+using WebAppPortalSite.Database.Tables.dbo;
 
-namespace WebAppPortalApi.Data.Stores.Users
+namespace WebAppPortalSite.Data.Stores.Users
 {
     public class UserStore : StoreBase, IUserStore
     {
@@ -19,7 +19,7 @@ namespace WebAppPortalApi.Data.Stores.Users
             await context.Users.SingleAsync(c => c.Moniker == moniker, cancellationToken);
 
         public async Task<List<User>> Get(CancellationToken cancellationToken) =>
-            await context.Users.ToListAsync(cancellationToken);
+            await context.Users.Include(c => c.Products).ToListAsync(cancellationToken);
 
         public async Task<bool> Exists(Guid moniker, CancellationToken cancellationToken) =>
             await context.Users.AnyAsync(c => c.Moniker == moniker, cancellationToken);

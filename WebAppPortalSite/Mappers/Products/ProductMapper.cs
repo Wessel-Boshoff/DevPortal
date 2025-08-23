@@ -1,4 +1,4 @@
-﻿using WebAppPortalApi.Common.Models.Products;
+﻿using WebAppPortalSite.Common.Models.Products;
 using WebAppPortalApiService.Models.Products;
 using WebAppPortalApiService.Models.Users;
 using WebAppPortalSite.Common.Enums;

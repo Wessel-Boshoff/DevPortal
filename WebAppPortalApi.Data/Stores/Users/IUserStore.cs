@@ -1,6 +1,6 @@
-﻿using WebAppPortalApi.Database.Tables.dbo;
+﻿using WebAppPortalSite.Database.Tables.dbo;
 
-namespace WebAppPortalApi.Data.Stores.Users
+namespace WebAppPortalSite.Data.Stores.Users
 {
     public interface IUserStore
     {

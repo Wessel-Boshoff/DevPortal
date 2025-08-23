@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
-using WebAppPortalApi.Core.Mappers.Logs;
-using WebAppPortalApi.Data.Stores.EventLogs;
+using WebAppPortalSite.Core.Mappers.Logs;
+using WebAppPortalSite.Data.Stores.EventLogs;
 
-namespace WebAppPortalApi.Core.Handlers.EventLogs
+namespace WebAppPortalSite.Core.Handlers.EventLogs
 {
     public class  EventLoggerHandler : ILogger
     {

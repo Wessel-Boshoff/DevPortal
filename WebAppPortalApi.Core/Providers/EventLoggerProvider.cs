@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
 using System;
-using WebAppPortalApi.Core.Handlers.EventLogs;
-using WebAppPortalApi.Data.Stores.EventLogs;
+using WebAppPortalSite.Core.Handlers.EventLogs;
+using WebAppPortalSite.Data.Stores.EventLogs;
 
-namespace WebAppPortalApi.Core.Providers
+namespace WebAppPortalSite.Core.Providers
 {
     public class EventLoggerProvider : ILoggerProvider
     {

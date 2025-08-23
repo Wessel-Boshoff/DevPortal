@@ -1,4 +1,4 @@
-﻿namespace WebAppPortalApi.Common.Enums
+﻿namespace WebAppPortalSite.Common.Enums
 {
     public enum Role
     {

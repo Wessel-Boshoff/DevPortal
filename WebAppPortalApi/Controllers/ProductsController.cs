@@ -1,9 +1,9 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using WebAppPortalApi.Common.Models.Products;
-using WebAppPortalApi.Core.Requests.Products;
+using WebAppPortalSite.Common.Models.Products;
+using WebAppPortalSite.Core.Requests.Products;
 
-namespace WebAppPortalApi.Controllers;
+namespace WebAppPortalSite.Controllers;
 
 [ApiController]
 [Route("[controller]")]

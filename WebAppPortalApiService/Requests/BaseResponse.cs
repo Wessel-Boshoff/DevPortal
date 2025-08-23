@@ -1,4 +1,4 @@
-﻿using WebAppPortalApi.Common.Models;
+﻿using WebAppPortalSite.Common.Models;
 using WebAppPortalSite.Common.Enums;
 
 namespace WebAppPortalApiService.Requests

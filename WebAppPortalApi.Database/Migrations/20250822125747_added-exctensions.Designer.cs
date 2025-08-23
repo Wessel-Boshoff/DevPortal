@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebAppPortalApi.Database;
+using WebAppPortalSite.Database;
 
 #nullable disable
 
-namespace WebAppPortalApi.Migrations
+namespace WebAppPortalSite.Migrations
 {
     [DbContext(typeof(DBContext))]
     [Migration("20250822125747_added-exctensions")]

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using WebAppPortalSite.Common.Enums;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace WebAppPortalApi.Common.Models.Users
+namespace WebAppPortalSite.Common.Models.Users
 {
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;

@@ -1,4 +1,15 @@
 ﻿@model PrimarySession
 
-<span>@Model.FirstNames @Model.LastName</span>
-<a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">SignOut</a> 
+
+<span class="text-white d-flex align-items-center h-100 px-3"
+      style="border-left: 1px solid rgba(255,255,255,0.3);
+             backdrop-filter: blur(9px);
+           ">
+    <span class="fw-semibold me-3">@Model.FirstNames @Model.LastName</span>
+    <a class="text-white text-decoration-none small"
+       asp-area="" asp-controller="Account" asp-action="Logout">
+        <span class="btn btn-sm btn-danger">
+            <i class="fa fa-arrow-right me-1"></i> Sign Out
+        </span>
+    </a>
+</span>

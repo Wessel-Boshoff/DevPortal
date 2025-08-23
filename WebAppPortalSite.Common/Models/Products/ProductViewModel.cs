@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using WebAppPortalApi.Common.Models.Users;
+using WebAppPortalSite.Common.Models.Users;
 using System;
 using System.ComponentModel;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace WebAppPortalApi.Common.Models.Products
+namespace WebAppPortalSite.Common.Models.Products
 {
     public class ProductViewModel
     {

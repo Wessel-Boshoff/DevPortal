@@ -4,7 +4,7 @@ html {
 
 @media (min-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 
@@ -19,4 +19,31 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.btn-group-xs > .btn, .btn-xs {
+    padding: .18rem .3rem;
+    font-size: .875rem;
+    border-radius: .2rem;
+}
+
+
+.bg-gradient {
+    background: linear-gradient(90deg, #0d6efd, #0a58ca)!important;
+}
+
+.navbar .nav-link {
+    color: #f8f9fa !important;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    border-radius: 6px;
+}
+
+    .navbar .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        color: #ffffff !important;
+    }
+
+
+.body-content{
+    margin-top: 2rem;
 }

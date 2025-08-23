@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace WebAppPortalApi.Database.Extensions
+namespace WebAppPortalSite.Database.Extensions
 {
     public static class DatabaseExtensions
     {

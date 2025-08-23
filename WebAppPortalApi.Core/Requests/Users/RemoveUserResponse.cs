@@ -1,6 +1,6 @@
-﻿using WebAppPortalApi.Common.Models.Users;
+﻿using WebAppPortalSite.Common.Models.Users;
 
-namespace WebAppPortalApi.Core.Requests.Users
+namespace WebAppPortalSite.Core.Requests.Users
 {
     public class RemoveUserResponse : BaseResponse
     {

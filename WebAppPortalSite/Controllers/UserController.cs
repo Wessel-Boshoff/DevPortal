@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Options;
 using NuGet.Common;
-using WebAppPortalApi.Common.Models.Users;
+using WebAppPortalSite.Common.Models.Users;
 using WebAppPortalApiService.Models.Users;
 using WebAppPortalApiService.Services.Users;
 using WebAppPortalSite.Common.Models;
@@ -169,7 +169,7 @@ public class UserController : Controller
         if (!result.Successful)
         {
             //   logger.LogError(result);
-            response.Errors.Add(new WebAppPortalApi.Common.Models.Error() { Value = "Unable to delete user." });
+            response.Errors.Add(new WebAppPortalSite.Common.Models.Error() { Value = "Unable to delete user." });
             response.ResponseCode = result.ResponseCode;
             return response;
         }

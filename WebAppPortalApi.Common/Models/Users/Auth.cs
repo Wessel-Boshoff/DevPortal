@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebAppPortalApi.Common.Enums;
+using WebAppPortalSite.Common.Enums;
 
-namespace WebAppPortalApi.Common.Models.Users
+namespace WebAppPortalSite.Common.Models.Users
 {
     public class Auth
     {

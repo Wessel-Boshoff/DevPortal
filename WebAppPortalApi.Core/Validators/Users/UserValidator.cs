@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using WebAppPortalApi.Common.Models.Users;
-using WebAppPortalApi.Core.Requests.Users;
+using WebAppPortalSite.Common.Models.Users;
+using WebAppPortalSite.Core.Requests.Users;
 
-namespace WebAppPortalApi.Core.Validators.Users
+namespace WebAppPortalSite.Core.Validators.Users
 {
     public class UserValidator : AbstractValidator<User>
     {

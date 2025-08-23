@@ -1,7 +1,7 @@
-﻿using WebAppPortalApi.Common.Enums;
-using WebAppPortalApi.Common.Models;
+﻿using WebAppPortalSite.Common.Enums;
+using WebAppPortalSite.Common.Models;
 
-namespace WebAppPortalApi.Core.Requests
+namespace WebAppPortalSite.Core.Requests
 {
     public class BaseResponse
     {

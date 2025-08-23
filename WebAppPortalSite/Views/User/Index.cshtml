@@ -4,34 +4,37 @@
     ViewData["Title"] = "User";
 }
 
-<h1>Login</h1>
-<hr />
+<div class="body-content">
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body  p-0">
+            <table class="table table-hover">
+                <thead class="bg-light text-dark fw-bold">
+                    <tr>
+                        <td>Email Address</td>
+                        <td>First Names</td>
+                        <td>Last Name</td>
+                        <td class="text-end"><a class="btn btn-xs btn-success" asp-action="Add" asp-controller="User"><span class="fa fa-plus"></span> Create</a></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.EmailAddress</td>
+                            <td>@item.FirstNames</td>
+                            <td>@item.LastName</td>
+                            <td class="text-end">
+                                <a class="btn btn-xs btn-outline-danger btnDeleteUser" data-moniker="@item.Moniker"><span class="fa fa-trash"></span> Delete</a>
+                                <a class="btn btn-xs btn-outline-warning" asp-action="Edit" asp-controller="User" asp-route-moniker="@item.Moniker"><span class="fa fa-pen"></span> Edit</a>
+                            </td>
 
-<table class="table">
-    <thead>
-        <tr>
-            <td>Email Address</td>
-            <td>First Names</td>
-            <td>Last Name</td>
-            <td><a class="btn btn-sm btn-primary" asp-action="Add" asp-controller="User">Create</a></td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td class="fw-bolder">@item.EmailAddress</td>
-                <td>@item.FirstNames</td>
-                <td>@item.LastName</td>
-                <td>
-                    <a class="btn btn-sm btn-outline-danger btnDeleteUser" data-moniker="@item.Moniker">Delete</a>
-                    <a class="btn btn-sm btn-outline-warning" asp-action="Edit" asp-controller="User" asp-route-moniker="@item.Moniker">Edit</a>
-                </td>
-
-            </tr>
-        }
-    </tbody>
-</table>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 
 <div id="deleteUserModal" class="modal" tabindex="-1">

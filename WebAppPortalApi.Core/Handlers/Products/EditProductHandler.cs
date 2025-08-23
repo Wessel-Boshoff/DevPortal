@@ -1,15 +1,15 @@
 ﻿using MediatR;
-using WebAppPortalApi.Common.Enums;
-using WebAppPortalApi.Core.Mappers.Errors;
-using WebAppPortalApi.Core.Mappers.Logs;
-using WebAppPortalApi.Core.Mappers.Products;
-using WebAppPortalApi.Core.Requests.Products;
-using WebAppPortalApi.Core.Utilities.Auths;
-using WebAppPortalApi.Core.Validators.Products;
-using WebAppPortalApi.Data.Stores.Products;
-using WebAppPortalApi.Data.Stores.Users;
+using WebAppPortalSite.Common.Enums;
+using WebAppPortalSite.Core.Mappers.Errors;
+using WebAppPortalSite.Core.Mappers.Logs;
+using WebAppPortalSite.Core.Mappers.Products;
+using WebAppPortalSite.Core.Requests.Products;
+using WebAppPortalSite.Core.Utilities.Auths;
+using WebAppPortalSite.Core.Validators.Products;
+using WebAppPortalSite.Data.Stores.Products;
+using WebAppPortalSite.Data.Stores.Users;
 
-namespace WebAppPortalApi.Core.Handlers.Products
+namespace WebAppPortalSite.Core.Handlers.Products
 {
     public class EditProductHandler : IRequestHandler<EditProductRequest, EditProductResponse>
     {

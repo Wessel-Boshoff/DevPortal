@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Net;
 using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
 
-namespace WebAppPortalApi.Database.Tables.log
+namespace WebAppPortalSite.Database.Tables.log
 {
     [Table("Requests", Schema = "log")]
     public class Request

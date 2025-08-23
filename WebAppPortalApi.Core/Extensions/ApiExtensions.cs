@@ -2,18 +2,18 @@
 using System.Reflection;
 using MediatR;
 using FluentValidation.AspNetCore;
-using WebAppPortalApi.Data.Stores.Users;
-using WebAppPortalApi.Data.Stores.RequestLogs;
-using WebAppPortalApi.Core.Handlers.RequestLogs;
+using WebAppPortalSite.Data.Stores.Users;
+using WebAppPortalSite.Data.Stores.RequestLogs;
+using WebAppPortalSite.Core.Handlers.RequestLogs;
 using Microsoft.AspNetCore.Builder;
-using WebAppPortalApi.Data.Extensions;
+using WebAppPortalSite.Data.Extensions;
 using Microsoft.Extensions.DependencyInjection;
-using WebAppPortalApi.Database.Extensions;
-using WebAppPortalApi.Core.Utilities.Auths;
+using WebAppPortalSite.Database.Extensions;
+using WebAppPortalSite.Core.Utilities.Auths;
 
-using WebAppPortalApi.Common.Options;
+using WebAppPortalSite.Common.Options;
 
-namespace WebAppPortalApi.Core.Extensions
+namespace WebAppPortalSite.Core.Extensions
 {
     public static class ApiExtensions
     {

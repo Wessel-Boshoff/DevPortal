@@ -3,10 +3,10 @@ using System.Reflection;
 using MediatR;
 using FluentValidation.AspNetCore;
 
-using WebAppPortalApi.Core.Middleware;
+using WebAppPortalSite.Core.Middleware;
 using Microsoft.AspNetCore.Builder;
 
-namespace WebAppPortalApi.Core.Extensions
+namespace WebAppPortalSite.Core.Extensions
 {
     internal static class RequestLogExtensions
     {

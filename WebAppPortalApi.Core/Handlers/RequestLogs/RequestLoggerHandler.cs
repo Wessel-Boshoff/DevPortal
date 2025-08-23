@@ -5,11 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebAppPortalApi.Data.Stores.EventLogs;
-using WebAppPortalApi.Data.Stores.RequestLogs;
-using WebAppPortalApi.Database.Tables.log;
+using WebAppPortalSite.Data.Stores.EventLogs;
+using WebAppPortalSite.Data.Stores.RequestLogs;
+using WebAppPortalSite.Database.Tables.log;
 
-namespace WebAppPortalApi.Core.Handlers.RequestLogs
+namespace WebAppPortalSite.Core.Handlers.RequestLogs
 {
     public class RequestLoggerHandler : IRequestLoggerHandler
     {

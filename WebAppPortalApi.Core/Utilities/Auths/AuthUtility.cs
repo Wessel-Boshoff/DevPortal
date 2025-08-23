@@ -8,12 +8,12 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using WebAppPortalApi.Common.Enums;
-using WebAppPortalApi.Common.Options;
-using WebAppPortalApi.Data.Stores.Users;
-using WebAppPortalApi.Database.Tables.dbo;
+using WebAppPortalSite.Common.Enums;
+using WebAppPortalSite.Common.Options;
+using WebAppPortalSite.Data.Stores.Users;
+using WebAppPortalSite.Database.Tables.dbo;
 
-namespace WebAppPortalApi.Core.Utilities.Auths
+namespace WebAppPortalSite.Core.Utilities.Auths
 {
     public class AuthUtility : IAuthUtility
     {

@@ -1,7 +1,7 @@
-﻿using WebAppPortalApi.Database;
-using WebAppPortalApi.Database.Tables.log;
+﻿using WebAppPortalSite.Database;
+using WebAppPortalSite.Database.Tables.log;
 
-namespace WebAppPortalApi.Data.Stores.RequestLogs
+namespace WebAppPortalSite.Data.Stores.RequestLogs
 {
     public class RequestLogStore : StoreBase, IRequestLogStore
     {

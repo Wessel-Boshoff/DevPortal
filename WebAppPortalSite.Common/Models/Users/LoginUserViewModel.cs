@@ -4,7 +4,7 @@ using WebAppPortalSite.Common.Enums;
 using System.Web.Mvc;
 
 
-namespace WebAppPortalApi.Common.Models.Users
+namespace WebAppPortalSite.Common.Models.Users
 {
 
     using System.ComponentModel.DataAnnotations;

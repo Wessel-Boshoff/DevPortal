@@ -1,7 +1,7 @@
 ﻿
 using WebAppPortalSite.Common.Enums;
 
-namespace WebAppPortalApi.Common.Models
+namespace WebAppPortalSite.Common.Models
 {
     public class Error
     {

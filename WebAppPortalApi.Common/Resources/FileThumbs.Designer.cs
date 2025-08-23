@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebAppPortalApi.Common.Resources {
+namespace WebAppPortalSite.Common.Resources {
     using System;
     
     

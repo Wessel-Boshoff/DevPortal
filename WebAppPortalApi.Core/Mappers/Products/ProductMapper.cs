@@ -1,12 +1,12 @@
 ﻿using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using WebAppPortalApi.Common.Enums;
-using WebAppPortalApi.Common.Models;
-using WebAppPortalApi.Common.Models.Products;
-using WebAppPortalApi.Core.Mappers.Users;
+using WebAppPortalSite.Common.Enums;
+using WebAppPortalSite.Common.Models;
+using WebAppPortalSite.Common.Models.Products;
+using WebAppPortalSite.Core.Mappers.Users;
 using WebAppPortalSite.Extensions;
 
-namespace WebAppPortalApi.Core.Mappers.Products
+namespace WebAppPortalSite.Core.Mappers.Products
 {
     internal static class ProductMapper
     {

@@ -1,8 +1,8 @@
 ﻿
-using WebAppPortalApi.Database;
-using WebAppPortalApi.Database.Tables.log;
+using WebAppPortalSite.Database;
+using WebAppPortalSite.Database.Tables.log;
 
-namespace WebAppPortalApi.Data.Stores.EventLogs
+namespace WebAppPortalSite.Data.Stores.EventLogs
 {
     public class EventLogStore : StoreBase, IEventLogStore
     {

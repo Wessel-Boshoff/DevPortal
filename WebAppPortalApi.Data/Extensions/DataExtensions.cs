@@ -1,12 +1,12 @@
 ﻿using System.Reflection;
-using WebAppPortalApi.Data.Stores.Users;
-using WebAppPortalApi.Data.Stores.RequestLogs;
-using WebAppPortalApi.Data.Stores.EventLogs;
+using WebAppPortalSite.Data.Stores.Users;
+using WebAppPortalSite.Data.Stores.RequestLogs;
+using WebAppPortalSite.Data.Stores.EventLogs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using WebAppPortalApi.Data.Stores.Products;
+using WebAppPortalSite.Data.Stores.Products;
 
-namespace WebAppPortalApi.Data.Extensions
+namespace WebAppPortalSite.Data.Extensions
 {
     public static class DataExtensions
     {

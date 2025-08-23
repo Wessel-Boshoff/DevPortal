@@ -1,5 +1,5 @@
 
-using WebAppPortalApi.Core.Extensions;
+using WebAppPortalSite.Core.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();

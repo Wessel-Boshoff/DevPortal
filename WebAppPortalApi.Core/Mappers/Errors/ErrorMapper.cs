@@ -1,9 +1,9 @@
 ﻿using FluentValidation.Results;
-using WebAppPortalApi.Common.Enums;
-using WebAppPortalApi.Common.Models;
-using WebAppPortalApi.Core.Mappers.Errors;
+using WebAppPortalSite.Common.Enums;
+using WebAppPortalSite.Common.Models;
+using WebAppPortalSite.Core.Mappers.Errors;
 
-namespace WebAppPortalApi.Core.Mappers.Errors
+namespace WebAppPortalSite.Core.Mappers.Errors
 {
     internal static class ErrorMapper
     {

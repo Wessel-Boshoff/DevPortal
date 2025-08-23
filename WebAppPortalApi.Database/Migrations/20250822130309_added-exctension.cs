@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace WebAppPortalApi.Migrations
+namespace WebAppPortalSite.Migrations
 {
     /// <inheritdoc />
     public partial class addedexctension : Migration

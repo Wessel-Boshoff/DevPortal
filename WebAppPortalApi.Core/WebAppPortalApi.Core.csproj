@@ -34,4 +34,8 @@
     <ProjectReference Include="..\WebAppPortalApi.Data\WebAppPortalApi.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Mappers\Dashboards\" />
+  </ItemGroup>
+
 </Project>

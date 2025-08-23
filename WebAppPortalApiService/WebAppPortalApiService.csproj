@@ -14,5 +14,9 @@
     <ProjectReference Include="..\WebAppPortalSite.Common\WebAppPortalSite.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Dashboards\" />
+  </ItemGroup>
+
 
 </Project>
