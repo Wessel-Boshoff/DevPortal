@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 CSS3 JS Full Demo</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+    <header class="dark">
+        <h1>Full HTML5, CSS3 & JS Demo</h1>
+        <nav>
+            <a href="#">Home</a><a href="#">Projects</a><a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Form Example</h2>
+            <form id="demoForm">
+                <label>Email: <input type="email" required></label><br><br>
+                <label>Age: <input type="number" min="1" max="120"></label><br><br>
+                <button type="submit">Submit</button>
+            </form>
+            <p id="formMsg"></p>
+        </section>
+
+        <section>
+            <h2>Media</h2>
+            <video controls width="100%">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+            <audio controls>
+                <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mp3">
+            </audio>
+        </section>
+
+        <section>
+            <h2>Canvas Drawing</h2>
+            <canvas id="myCanvas" width="250" height="150" style="border:1px solid #ccc;"></canvas>
+        </section>
+
+        <section>
+            <h2>Fetch API Demo</h2>
+            <button onclick="loadData()">Load Data</button>
+            <ul id="dataList"></ul>
+        </section>
+
+        <section>
+            <h2>Theme Toggle</h2>
+            <button onclick="toggleTheme()" class="pulse">Toggle Theme</button>
+        </section>
+
+        <section>
+            <h2>Clock</h2>
+            <p id="clock">00:00:00</p>
+        </section>
+    </main>
+
+    <footer class="dark">
+        <p>&copy; 2025 Demo Project</p>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

@@ -51,6 +51,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoptionPortal.Models", "Ad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoptionPortal.Services", "AdoptionPortal.Services\AdoptionPortal.Services.csproj", "{57CF6C99-9E9E-444A-9389-EC84D3FECEBC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Html5JsCss3Demo", "Html5JsCss3Demo", "{CD5C2C87-FCA5-41AF-8F43-D1C0C15517D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Site", "Site", "{AC488AB1-FCE2-408B-B50A-C8054AD8C6D3}"
+	ProjectSection(SolutionItems) = preProject
+		index.css = index.css
+		index.html = index.html
+		index.js = index.js
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +144,7 @@ Global
 		{89F52667-0944-48F9-9776-E26F826EF964} = {6502E73D-2262-409A-8BC8-7F9C745FEEAC}
 		{013E9C7F-BEB0-484A-8A0D-EA6755745837} = {6502E73D-2262-409A-8BC8-7F9C745FEEAC}
 		{57CF6C99-9E9E-444A-9389-EC84D3FECEBC} = {6502E73D-2262-409A-8BC8-7F9C745FEEAC}
+		{AC488AB1-FCE2-408B-B50A-C8054AD8C6D3} = {CD5C2C87-FCA5-41AF-8F43-D1C0C15517D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CC4692C3-50AA-420B-AA0C-8BBA477B3EA8}
