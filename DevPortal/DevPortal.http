@@ -23,3 +23,172 @@ HTML5/JS/CSS3	Html5JsCss3Demo	Responsive UI, DOM manipulation, fetch API
 Networking Fundamentals	NetworkingSimulator	TCP/UDP chat app or packet sender/receiver
 Software Dev Fundamentals	SoftwareFundamentalsToolkit	Design patterns, algorithms, console utilities
 Database Fundamentals	DatabaseManager	EF Core + raw SQL, relational DB design, CRUD
+
+
+📊 Core Tables
+
+Customers
+
+CustomerID (PK)
+
+FirstName
+
+LastName
+
+Email
+
+PhoneNumber
+
+Address
+
+City
+
+Country
+
+DateCreated
+
+➝ Customers place Orders.
+
+Products
+
+ProductID (PK)
+
+Name
+
+Description
+
+CategoryID (FK)
+
+Price
+
+StockQuantity
+
+DateAdded
+
+➝ Products belong to a Category and appear in OrderItems.
+
+Categories
+
+CategoryID (PK)
+
+CategoryName
+
+Description
+
+➝ Each product links to one category.
+
+Orders
+
+OrderID (PK)
+
+CustomerID (FK)
+
+OrderDate
+
+TotalAmount
+
+Status (e.g. Pending, Shipped, Delivered, Cancelled)
+
+➝ Orders are placed by Customers and contain OrderItems.
+
+OrderItems
+
+OrderItemID (PK)
+
+OrderID (FK)
+
+ProductID (FK)
+
+Quantity
+
+PriceAtPurchase
+
+➝ This is a many-to-many relationship between Orders and Products.
+
+💳 Payment & Delivery
+
+Payments
+
+PaymentID (PK)
+
+OrderID (FK)
+
+PaymentDate
+
+Amount
+
+PaymentMethod (Credit Card, EFT, PayPal, etc.)
+
+Status
+
+➝ Each Order has one or more Payments.
+
+Shipments
+
+ShipmentID (PK)
+
+OrderID (FK)
+
+ShippedDate
+
+TrackingNumber
+
+Carrier
+
+Status
+
+➝ Each Order may have one or more Shipments.
+
+⭐ Optional (to make it richer for credits)
+
+Suppliers
+
+SupplierID (PK)
+
+Name
+
+ContactPerson
+
+Phone
+
+Email
+
+➝ Products may be linked to Suppliers.
+
+ProductReviews
+
+ReviewID (PK)
+
+CustomerID (FK)
+
+ProductID (FK)
+
+Rating (1–5)
+
+ReviewText
+
+ReviewDate
+
+➝ Customers leave Reviews for Products.
+
+ShoppingCart (if you want to demo session-based cart)
+
+CartID (PK)
+
+CustomerID (FK)
+
+CreatedDate
+
+➝ Holds CartItems (before order is placed).
+
+CartItems
+
+CartItemID (PK)
+
+CartID (FK)
+
+ProductID (FK)
+
+Quantity
+
+➝ Becomes an Order when purchased.
