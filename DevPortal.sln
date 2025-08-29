@@ -84,6 +84,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareFundamentalsToolkit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareFundamentalsToolkit.Sort", "SoftwareFundamentalsToolkit.Sort\SoftwareFundamentalsToolkit.Sort.csproj", "{55246F8A-72C1-4A44-B171-09155FDF45E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareFundamentalsToolkit.RecursiveFunctions", "SoftwareFundamentalsToolkit.RecursiveFunctions\SoftwareFundamentalsToolkit.RecursiveFunctions.csproj", "{72FF4652-A774-4368-AA61-A5A69546ECF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -158,6 +160,10 @@ Global
 		{55246F8A-72C1-4A44-B171-09155FDF45E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55246F8A-72C1-4A44-B171-09155FDF45E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55246F8A-72C1-4A44-B171-09155FDF45E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72FF4652-A774-4368-AA61-A5A69546ECF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72FF4652-A774-4368-AA61-A5A69546ECF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72FF4652-A774-4368-AA61-A5A69546ECF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72FF4652-A774-4368-AA61-A5A69546ECF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -195,6 +201,7 @@ Global
 		{A644EF4B-E557-4C12-8573-9350B6420DD6} = {A69E986A-F991-4621-A2A6-4FD000803DA2}
 		{D8F9A3C0-8D1E-4BF8-9C44-8CE93F1C8A73} = {A69E986A-F991-4621-A2A6-4FD000803DA2}
 		{55246F8A-72C1-4A44-B171-09155FDF45E9} = {A69E986A-F991-4621-A2A6-4FD000803DA2}
+		{72FF4652-A774-4368-AA61-A5A69546ECF2} = {A69E986A-F991-4621-A2A6-4FD000803DA2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CC4692C3-50AA-420B-AA0C-8BBA477B3EA8}
